@@ -1,0 +1,97 @@
+.casino--hero {
+    background-image: url(../../images/bg1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.casino--hero::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: .6;
+}
+
+.hero__content {
+   padding-left: 10rem;
+   z-index: 1;
+}
+
+.casino--hero__title {
+    font-size: 5.5rem;
+    color: #fff;
+    font-family: 'Syne Tactile', cursive;
+    text-shadow: 0px 0px 25px white;
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+.casino--hero__title::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    left: -2%;
+    bottom: 12%;
+    z-index: -1;
+    border-top: 10px solid transparent;
+    border-right: 450px solid orange;
+    border-bottom: 10px solid transparent;
+}
+
+.casino--hero__text {
+    font-family: 'Syne Tactile', cursive;
+    font-size: 2.5rem;
+    color: #fff;
+    width: 500px;
+    text-shadow: 0px 0px 25px white, 0px 0px 15px red;
+}
+
+.primary--btn {
+    padding: .5rem 2rem;
+    border: none;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background-image: linear-gradient(90deg, orange, #f0dc6d, orange);
+    background-size: 400%;
+    color: #fff;
+    transition: background-position-x .4s ease-in-out;
+    cursor: pointer;
+    margin-top: 2rem;
+    box-shadow: 0px 0px 35px 2px orange;
+}
+
+button:hover {
+    background-position-x: right;
+}
+
+.hero-img {
+    position: absolute;
+    bottom: 0;
+    right: -40px;
+}
+
+.transparent-box {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background-image: linear-gradient(transparent, #1f1d1d);
+}
+
+
+
+
+

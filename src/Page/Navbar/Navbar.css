@@ -1,0 +1,48 @@
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    position: fixed;
+    z-index: 5;
+    color: #fff;
+    padding: 0 2rem;
+    background-image: linear-gradient(90deg, orange, transparent, #181717, #181717);
+    background-size: 200%;
+    transition: all 1s ease;
+}
+
+.nav:hover {
+    background-position-x: right;
+}
+
+.nav--left {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    cursor: pointer;
+}
+
+.nav--left h4 {
+    font-size: 1.5rem;
+}
+
+.nav--right {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    list-style: none;
+    font-size: 1.2rem;
+}
+
+.nav--right li {
+    padding: 0 1rem;
+    cursor: pointer;
+    transition: color .2s ease-in-out;
+}
+
+.nav--right li:hover {
+    color: orange;
+    text-shadow: 1px 1px 25px rgb(233, 229, 27);
+}

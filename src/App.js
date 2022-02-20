@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import React from "react";
 import './App.css';
+import Navbar from "./Page/Navbar/Navbar";
+import Hero from "./Page/Hero/Hero";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <Navbar />
+      <Hero />
+      {/* 
+        sekcja 2 - wybór gier z menu
+        sekcja 3 - testimonials albo coś w tym rodzaju
+        sekcja 4-10 gry - {poker, black-jack, ruletka, wojna, 1000, 9}
+        sekcja 11 - footer
+      */}
     </div>
   );
 }

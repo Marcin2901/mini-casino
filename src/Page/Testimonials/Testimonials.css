@@ -1,0 +1,15 @@
+.testimonials {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 1200px;
+    padding: 2rem;
+    margin: 0 auto;
+}
+
+.testimonial {
+    background-color: #fff;
+    width: 300px;
+    padding: 1rem;
+    margin: 1rem;
+}

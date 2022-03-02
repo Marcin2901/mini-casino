@@ -7,6 +7,7 @@ import GameMenu from "./Page/GameMenu/GameMenu"
 import Testimonials from "./Page/Testimonials/Testimonials";
 import Poker from "./Page/Poker/Poker";
 import BlackJack from "./Page/BlackJack/BlackJack";
+import Roulette from "./Page/Roulette/Roulette";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
       <Testimonials />
       <Poker />
       <BlackJack />
-      
+      <Roulette />
       {/* <GameMenu />
       <Testimonials />
       <Poker />

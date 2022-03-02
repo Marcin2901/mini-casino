@@ -12,7 +12,7 @@ const Roulette = () => {
 
     return (
         <section className="game__container container">
-             <GameFrameComponent title={"Poker"} img={rouletteImg} description={description} link={"/"}/>
+             <GameFrameComponent title={"Roulette"} img={rouletteImg} description={description} link={"/"}/>
         </section>
     )
 }

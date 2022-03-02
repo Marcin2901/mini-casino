@@ -1,0 +1,6 @@
+.game__container {
+    background-color: rgba(155, 155, 155, 0.101);
+    color: #fff;
+    border-radius: .5rem;
+    margin-top: 5rem
+}

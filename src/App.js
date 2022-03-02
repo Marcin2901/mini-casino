@@ -5,6 +5,8 @@ import Hero from "./Page/Hero/Hero";
 import About from "./Page/About/About";
 import GameMenu from "./Page/GameMenu/GameMenu"
 import Testimonials from "./Page/Testimonials/Testimonials";
+import Poker from "./Page/Poker/Poker";
+import BlackJack from "./Page/BlackJack/BlackJack";
 
 function App() {
   return (
@@ -14,6 +16,9 @@ function App() {
       <About />
       <GameMenu />
       <Testimonials />
+      <Poker />
+      <BlackJack />
+      
       {/* <GameMenu />
       <Testimonials />
       <Poker />

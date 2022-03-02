@@ -1,0 +1,54 @@
+.game--frame {
+    display: flex;
+    height: 500px;
+}
+
+.game--frame__img {
+    width: 60%;
+    /* height: 450px; */
+    object-fit: cover;
+    object-position: top;
+    border-radius: .5rem 0 0 .5rem;
+}
+
+.game--frame__content {
+    width: 40%;
+    padding: 2rem 3rem;
+    position: relative;
+
+}
+
+.game--frame__content h3 {
+    font-family: 'Kiwi Maru', serif;
+    font-size: 2rem;
+    width: max-content;
+    color: #e9c966;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e9c966;
+}
+
+.game--frame__content p {
+    word-spacing: 2px;
+}
+
+.game--frame__content h4 {
+    font-size: 1.5rem;
+    color: #e9c966;
+    margin: 1rem 0 .5rem;
+}
+
+
+.game--frame__content .play--btn button {
+    width: calc(100% - 6rem);
+    position: absolute;
+    bottom: 2rem;
+}
+
+.link-text {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.link-text:hover {
+    color: #e9c966;
+}

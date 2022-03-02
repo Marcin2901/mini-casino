@@ -9,6 +9,7 @@ import Poker from "./Page/Poker/Poker";
 import BlackJack from "./Page/BlackJack/BlackJack";
 import Roulette from "./Page/Roulette/Roulette";
 import War from "./Page/War/War";
+import Thousand from "./Page/Thousand/Thousand";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
       <BlackJack />
       <Roulette />
       <War />
+      <Thousand />
       {/* <GameMenu />
       <Testimonials />
       <Poker />

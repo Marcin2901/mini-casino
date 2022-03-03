@@ -10,6 +10,7 @@ import BlackJack from "./Page/BlackJack/BlackJack";
 import Roulette from "./Page/Roulette/Roulette";
 import War from "./Page/War/War";
 import Thousand from "./Page/Thousand/Thousand";
+import Footer from "./Page/Footer/Footer";
 
 function App() {
   return (
@@ -24,15 +25,7 @@ function App() {
       <Roulette />
       <War />
       <Thousand />
-      {/* <GameMenu />
-      <Testimonials />
-      <Poker />
-      <BlackJack />
-      <Ruletka />
-      <War />
-      <ThousentGame />
-      <NineGame />
-      <Footer /> */}
+      <Footer />
       {/* 
         sekcja 2 - wybór gier z menu
         sekcja 3 - testimonials albo coś w tym rodzaju

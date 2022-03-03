@@ -4,35 +4,31 @@ import "./GameMenu.css";
 const GameMenu = () => {
     return (
         <section className="game--menu">
+            <h2 className="game--menu__title">Games Menu</h2>
              <div className="game-box">
-                 <img />
-                 <h4>Title</h4>
-                 <button className="primary--btn">Play</button>
+                 {/* <img src={pokerMenuImg}/> */}
+                 <h4 className="game-name">Poker</h4>
+                 <button className="primary--btn menu--btn ">Go</button>
              </div>
              <div className="game-box">
-                 <img />
-                 <h4>Title</h4>
-                 <button className="primary--btn">Play</button>
+                 {/* <img src={blackJackMenuImg} /> */}
+                 <h4 className="game-name">Black Jack</h4>
+                 <button className="primary--btn menu--btn">Go</button>
              </div>
              <div className="game-box">
-                 <img />
-                 <h4>Title</h4>
-                 <button className="primary--btn">Play</button>
+                 {/* <img src={RouletteMenuImg} /> */}
+                 <h4 className="game-name">Roulette</h4>
+                 <button className="primary--btn menu--btn">Go</button>
              </div>
              <div className="game-box">
-                 <img />
-                 <h4>Title</h4>
-                 <button className="primary--btn">Play</button>
+                 {/* <img src={WarMenuImg} /> */}
+                 <h4 className="game-name">War</h4>
+                 <button className="primary--btn menu--btn">Go</button>
              </div>
              <div className="game-box">
-                 <img />
-                 <h4>Title</h4>
-                 <button className="primary--btn">Play</button>
-             </div>
-             <div className="game-box">
-                 <img />
-                 <h4>Title</h4>
-                 <button className="primary--btn">Play</button>
+                 {/* <img src={ThousandMenuImg} /> */}
+                 <h4 className="game-name">Thousand</h4>
+                 <button className="primary--btn menu--btn">Go</button>
              </div>
         </section>
     )

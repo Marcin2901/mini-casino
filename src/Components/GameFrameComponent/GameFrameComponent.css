@@ -4,15 +4,15 @@
 }
 
 .game--frame__img {
-    width: 60%;
+    width: 55%;
     /* height: 450px; */
     object-fit: cover;
     object-position: top;
-    border-radius: .5rem 0 0 .5rem;
+    border-radius: 1.5rem 0 0 1.5rem;
 }
 
 .game--frame__content {
-    width: 40%;
+    width: 45%;
     padding: 2rem 3rem;
     position: relative;
 

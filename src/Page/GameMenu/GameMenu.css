@@ -1,21 +1,126 @@
 .game--menu {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    max-width: 1200px;
-    /* height: 130vh; */
-    margin: 0 auto;
-    padding-bottom: 10rem;
+    justify-content: space-evenly;
+    gap: 2rem;
+    align-content: center;
+    /* max-width: 1200px; */
+    /* margin: 0 auto; */
+    padding: 7rem 7rem 0;
+    height: 120vh;
+    position: relative;
+    background-image: url("../../images//bg4.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: right;
+}
+
+.game--menu::before,
+.game--menu::after {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100px;
+}
+
+.game--menu::before {
+    top: 0;
+    background-image: linear-gradient(180deg, #1f1d1d, transparent );
+}
+
+.game--menu::after {
+    bottom: 0;
+    background-image: linear-gradient(180deg, transparent, #1f1d1d );
 
 }
 
+.game--menu__title {
+    position: absolute;
+    color: #fff;
+    top: 5%;
+    font-size: 5rem;
+    font-weight: 400;
+    text-shadow: 0px 0px 25px #fff;
+}
 
 .game-box {
     background-color: #fff;
-    width: 300px;
-    /* height: 300px; */
-    padding: 1rem;
+    background-size: cover;
+    background-position: center;
+    width: 350px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     border-radius: .5rem;
+    box-shadow: 0px 0px 10px 1px #fff;
+    margin: 1rem;
+    position: relative;
+    transition: transform .4s ease-in-out, box-shadow .4s ease-in-out;
+}
+
+.game-box:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 5px 20px 1px #fff;
+}
+
+.game-box::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border-radius: .5rem;
+    opacity: .4;
+}
+
+.game-box:nth-child(2) {
+    background-image: url("../../images/poker-menu.jpg");
+}
+
+.game-box:nth-child(3) {
+    background-image: url("../../images/black-jack-menu.jpg");
+}
+
+.game-box:nth-child(4) {
+    background-image: url("../../images/roulette-menu.jpg");
+}
+
+.game-box:nth-child(5) {
+    background-image: url("../../images/war-menu.jpg");
+}
+
+.game-box:nth-child(6) {
+    background-image: url("../../images/thousand-menu.png");
+}
+
+.game-name {
+    color: #fff;
+    font-size: 2rem;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0px 0px 10px red;
+    margin: .5rem 1.5rem;
+}
+
+.menu--btn {
+    position: relative;
+    z-index: 1;
+    align-self: flex-start;
     margin: 1rem;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

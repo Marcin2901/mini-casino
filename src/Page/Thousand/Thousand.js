@@ -1,6 +1,6 @@
 import React from "react";
 import GameFrameComponent from "../../Components/GameFrameComponent/GameFrameComponent";
-import thousandImg from "../../images/thousand.png";
+import thousandImg from "../../images/thousand2.png";
 
 const Thousand = () => {
 

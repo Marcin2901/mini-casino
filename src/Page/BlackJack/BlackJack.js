@@ -12,7 +12,7 @@ const BlackJack = () => {
 
     return (
         <section className="game__container container">
-            <GameFrameComponent  title={"Black Jack"} img={blackJackImg} description={description} link={"/"} />
+            <GameFrameComponent  title={"Black Jack"} img={blackJackImg} description={description} link={"/blackJack"} />
         </section>
     )
 }

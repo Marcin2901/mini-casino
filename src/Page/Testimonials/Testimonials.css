@@ -4,12 +4,12 @@
     justify-content: center;
     align-items: center;
     max-width: 1200px;
-    padding: 2rem 0;
+    padding: 2rem 0 10rem;
     margin: 0 auto;
 }
 
 .testimonials--title {
-    color: #fff;
+    color: #e9c966;
     font-size: 3rem;
     font-weight: 400;
     margin: 3rem 0 5rem;

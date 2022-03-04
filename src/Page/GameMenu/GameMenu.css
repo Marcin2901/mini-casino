@@ -7,7 +7,7 @@
     /* max-width: 1200px; */
     /* margin: 0 auto; */
     padding: 7rem 7rem 0;
-    height: 120vh;
+    height: 140vh;
     position: relative;
     background-image: url("../../images//bg4.jpg");
     background-repeat: no-repeat;
@@ -36,11 +36,11 @@
 
 .game--menu__title {
     position: absolute;
-    color: #fff;
-    top: 5%;
+    color: #e9c966;
+    top: 10%;
     font-size: 5rem;
     font-weight: 400;
-    text-shadow: 0px 0px 25px #fff;
+    text-shadow: 0px 0px 25px #e9c966;;
 }
 
 .game-box {
@@ -60,7 +60,7 @@
 }
 
 .game-box:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0px 5px 20px 1px #fff;
 }
 

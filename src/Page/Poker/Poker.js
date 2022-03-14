@@ -11,7 +11,7 @@ const Poker = () => {
 
     return (
         <section className="game__container container">
-            <GameFrameComponent title={"Poker"} img={pokerImg} description={description} link={"/"}/>
+            <GameFrameComponent title={"Poker"} img={pokerImg} description={description} link={"/poker"}/>
         </section>
     )
 }

@@ -1,0 +1,211 @@
+.poker__table {
+    width: 1000px;
+    height: 600px;
+    position: relative;
+    background-image: url("../../images/poker-table.png");
+    background-color: #ffffff55;
+    background-position: center;
+    background-size: cover;
+    box-shadow: 0px 0px 10px #fff;
+
+}
+.poker__table--title {
+    position: absolute;
+    top: -1%;
+    right: 12%;
+    font-size: 3.5rem;
+    color: #fff;
+}
+
+.poker--option {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.poker--option button {
+    border: none;
+    border-radius: .5rem;
+    padding: .4rem 1rem;
+    background-color: orange;
+    color: #fff;
+    font-weight: bold;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.poker--option input {
+    width: 50px;
+    height: 35px;
+}
+
+.player-container,
+.rival-container {
+    width: 200px;
+    height: 190px;
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.player-container {
+    top: 55%;
+    left: 20%;
+    
+}
+
+.rival-container-1 {
+    top: 55%;
+    right: 20%;
+}
+
+.rival-container-2 {
+    top: 25%;
+    right: 0;
+}
+.rival-container-3 {
+    top: 25%;
+    left: 0;
+}
+
+.player-container .player-box,
+.rival-container .player-box {
+    position: absolute;
+    top: 10%;
+    right: -15%;
+    height: 120px;
+    width: 150px;
+    border: none;
+}
+
+.player-container--header {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    z-index: 1;
+}
+
+.player-container--header h2 {
+    color: #fff;
+   
+}
+
+.img-box {
+    width: 70px;
+    height: 70px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    padding: .25rem;
+    background-color: rgba(178, 236, 16, 0.856);
+}
+
+.img-box img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.rival-container .img-box {
+    background-color: #fff;
+    border: 2px solid rgba(178, 236, 16, 0.856);
+}
+
+.card1-img {
+    width: 50% !important;
+    height: 100px !important;
+    transform: rotate(-2deg) translateY(5px);
+    object-fit: cover;
+}
+
+.card2-img {
+    width: 50% !important;
+    height: 100px !important;
+    position: absolute;
+    left: 35%;
+    top: 10%;
+    transform: rotate(10deg);
+    object-fit: cover;
+}
+
+.bet-value {
+    color: #fff;
+    position: absolute;
+    top: -5%;
+    left: 45%;
+}
+
+.diller-container {
+    width: 400px;
+    height: 110px;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: .5rem;
+}
+
+.diller-img {
+    width: 80px;
+    height: 100%;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.player-info span {
+    color: #e9c966;
+    font-size: 1.2rem;
+}
+
+.poker-winner {
+    position: absolute;
+    top: -15%;
+    left: 0;
+    width: 120%;
+    height: 125%;
+    border-radius: 50%;
+    border: 2px solid #e9c966aa;
+    box-shadow: 0px 0px 35px #e9c966;
+    z-index: 0;
+}
+
+.btn-disable {
+    opacity: .5;
+    cursor: default !important;
+}
+
+.fold {
+    opacity: .5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

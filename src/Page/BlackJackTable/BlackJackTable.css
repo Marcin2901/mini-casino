@@ -22,7 +22,7 @@
 .player-box__container {
     display: flex;
     position: absolute;
-    top: 65%;
+    top: 60%;
     left: 50%;
     transform: translateX(-50%);
     
@@ -81,19 +81,19 @@
 }
 
 .box-2 {
-    transform : rotate(7deg) translate(-15px, -12px);
+    transform : rotate(7deg) translate(-30px, -12px);
 }
 
 .box-4 {
-    transform : rotate(-10deg) translate(15px, -12px);
+    transform : rotate(-10deg) translate(30px, -12px);
 }
 
 .box-1 {
-    transform : rotate(20deg) translate(-40px, -50px);
+    transform : rotate(20deg) translate(-70px, -50px);
 }
 
 .box-5 {
-    transform : rotate(-20deg) translate(40px, -50px);
+    transform : rotate(-20deg) translate(70px, -50px);
 }
 
 .black-jack__table h6,
@@ -102,7 +102,7 @@
     width: 120%;
     font-size: 1.2rem;
     position: absolute;
-    top: 110%;
+    top: 120%;
     left: 50%;
     transform: translateX(-50%);
     text-align: center;
@@ -149,7 +149,7 @@
     background-color: rgb(170, 7, 7);
 } */
 
-.pass--btn {
+/* .pass--btn {
     position: absolute;
     top: -15%;
     left: -25%;
@@ -166,7 +166,7 @@
 
 .pass--btn:hover {
     background-color: rgb(161, 9, 9);
-}
+} */
 
 .disabled .pass--btn  {
     display: none;
@@ -196,7 +196,7 @@
     left: -5%;
     width: 180px;
     height: 180px;
-    border: 4px dashed #e9c966;
+    border: 2px dashed #e9c966;
     box-shadow: 0px 0px 15px 2px #e9c966;
     border-radius: 50%;
     z-index: -1;
@@ -223,7 +223,7 @@
     left: -5%;
     width: 180px;
     height: 180px;
-    border: 4px dashed red;
+    border: 2px dashed red;
     box-shadow: 0px 0px 15px 2px red;;
     border-radius: 50%;
     z-index: -1;
@@ -243,6 +243,66 @@
         box-shadow: 0px 0px 5px 2px red;
     }
 }
+
+.box-draw {
+    position: absolute;
+    top: -20%;
+    left: -5%;
+    width: 180px;
+    height: 180px;
+    border: 2px dashed royalblue;
+    box-shadow: 0px 0px 15px 2px royalblue;;
+    border-radius: 50%;
+    z-index: -1;
+    animation: spin3 10s infinite linear;
+}
+
+@keyframes spin3 {
+    0% {
+        transform: rotate(0deg);
+        box-shadow: 0px 0px 5px 2px royalblue;
+    } 
+    50% {
+        box-shadow: 0px 0px 40px 10px royalblue;
+    }
+    100% {
+        transform: rotate(360deg);
+        box-shadow: 0px 0px 5px 2px royalblue;
+    }
+}
+
+.buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    position: absolute;
+    bottom: -2%;
+    width: 100%;
+}
+
+.draw--btn,
+.pass--btn,
+.new-game--btn {
+    font-size: 1.2rem;
+    border-radius: .5rem;
+    padding: .5rem 1.5rem;
+    box-shadow: 0px 0px 5px #fff;
+}
+
+.draw--btn {
+    background-image: linear-gradient(green, rgb(43, 194, 43));
+}
+
+.pass--btn {
+    background-image: linear-gradient(rgb(172, 29, 29), rgb(245, 34, 34));
+}
+
+.new-game--btn {
+    background-image: linear-gradient(blue, royalblue);
+}
+
+
+
 
 
 

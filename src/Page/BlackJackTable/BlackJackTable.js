@@ -1,17 +1,17 @@
-import { calculateNewValue } from "@testing-library/user-event/dist/utils";
 import React, {useEffect, useState} from "react";
-import Table from "../../Components/Table/Table";
-import img from "../../images/black-jack-table.png"
+import {useNavigate} from 'react-router-dom';
 import "./BlackJackTable.css";
 
 const BlackJackTable = () => {
 
+    const navigate = useNavigate();
+    const [resetGame, setResetGame] = useState(false);
     const [deck, setDeck] = useState();
     const [dilletBox, setDillerBox] = useState({
         value: 0,
         img: ""
     })
-
+   
     useEffect(() => {
         fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6")
             .then(res => res.json())
@@ -22,7 +22,7 @@ const BlackJackTable = () => {
                 setDeck({remaining: data.remaining, deck_id: data.deck_id})
                 dillerDraw(data.deck_id);
             })
-    }, [])
+    }, [resetGame])
 
     const dillerDraw = (deckId) => {
         fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`)
@@ -47,13 +47,14 @@ const BlackJackTable = () => {
     const getBoxSet = () => {
         const boxArray = [];
         for(let i=0; i<boxQuantity; i++) {
-            boxArray.push({value: 0, img: "", pass: false, win: false});
+            boxArray.push({value: 0, img: "", pass: false, win: false, draw: false});
         }
         return boxArray;
     }
     const [cardsInBox, setCardsInBox] = useState(getBoxSet())
 
-    const draw = () => {
+    const draw = (value) => {
+        value < 21 && 
         fetch(`https://deckofcardsapi.com/api/deck/${deck.deck_id}/draw/?count=1`)
             .then(res => res.json())
             .then(data => { 
@@ -65,40 +66,45 @@ const BlackJackTable = () => {
                       { value: prevState[currentBox].value + cardValue,
                         img: card.image,
                         pass: prevState[currentBox].value + cardValue >=21 ? true : prevState[currentBox].pass,
-                        win: prevState[currentBox].win},
+                        win: prevState[currentBox].win,
+                        draw: prevState[currentBox].draw},
                       ...prevState.slice(currentBox+1, boxQuantity)
                     ]
                 ))
-                
             })
         }
-    if(currentBox < boxQuantity && cardsInBox[currentBox].pass) setCurrentBox(prevState => prevState + 1);
-    const checkGameResults = () => {
-        cardsInBox.forEach(box => {
-            if(box.value > 21) {
-                box.win = false;
-            }
-            else if(dilletBox.value > 21) {
-                box.win = true;
-            } else if (box.value > dilletBox.value) {
-                box.win = true;
-            }
-        })
-        console.log(cardsInBox.filter(box => box.win).length)
-        setEndGame(true);
-    }
-    if(cardsInBox.filter(box => box.pass === true).length === boxQuantity && !endGame) {
-        // while(dilletBox.value < 17 ) {
-            // setTimeout(() => {dillerDraw()}, 1000)
-            if(dilletBox.value < 17) {
-               setTimeout(() => { dillerDraw(deck.deck_id)}, 500)
-            } else {
-                checkGameResults()
-            }
-        // }
-    }
+    
+        useEffect(()=> {
+            if(currentBox < boxQuantity && cardsInBox[currentBox].pass)
+                 setCurrentBox(prevState => prevState + 1);
 
-   
+            const checkGameResults = () => {
+                cardsInBox.forEach(box => {
+                    if(box.value > 21) {
+                        box.win = false;
+                    }
+                    else if(dilletBox.value > 21) {
+                        box.win = true;
+                    } else if (box.value > dilletBox.value) {
+                        box.win = true;
+                    } else if(box.value === dilletBox.value){
+                        box.draw = true;
+                    }
+                })
+                setEndGame(true);
+            }
+        
+            if(cardsInBox.filter(box => box.pass === true).length === boxQuantity && !endGame) {
+                   
+                       setTimeout(() => {
+                        if(dilletBox.value < 17) {
+                            dillerDraw(deck.deck_id)
+                        } else {
+                            checkGameResults()
+                        }
+                        }, 1000)        
+            }
+        }, [cardsInBox, dilletBox])
 
     const calculateValue = (card, player) => {
         if(!parseInt(card.value)) {
@@ -140,14 +146,26 @@ const BlackJackTable = () => {
     const handleBoxState = (boxNr) => {
         if(endGame && cardsInBox[boxNr].win) {
             return "box-winner";
+        }else if(endGame && cardsInBox[boxNr].draw) {
+            return "box-draw"
         } else if(endGame && ! cardsInBox[boxNr].win) {
             return "box-loser";
         }
         return "";
     }
 
+    const newGame = () => {
+        setDillerBox({ value: 0, img: "" })
+        setEndGame(false);
+        setBoxQuantity(5);
+        setCurrentBox(0)
+        setCardsInBox(getBoxSet());
+        setResetGame(prevState => !prevState)
+    }
+
     return (
         <section className="table">
+            <div className="arrow-back" onClick={() => navigate("/")}><i className="fas fa-arrow-left"></i></div>
             <section className="black-jack__table">
                 <div className="deller-box">
                       {dilletBox.img && <img src={dilletBox.img} /> }
@@ -158,12 +176,12 @@ const BlackJackTable = () => {
                     <div className="player-box__content box-1">
                         <div className={!cardsInBox[0].pass ? "player-box"  : "player-box disabled"}>
                             {cardsInBox[0].img && <img src={cardsInBox[0].img} /> }
-                            <button className="pass--btn" onClick={pass}>Pass</button>
+                            {/* <button className="pass--btn" onClick={pass}>Pass</button> */}
                             {cardsInBox[0].value === 0 && <span className="player-box--text">Click to get card</span>}
                             <h6 style={handleSummaryColor(0)}>Suma: {cardsInBox[0].value}</h6>   
-                            <div className="box-info" onClick={cardsInBox[0].value < 21 && draw}>
+                            {/* <div className="box-info" onClick={cardsInBox[0].value < 21 && draw}>
                                 <span className="player-box--text">Click to get card</span>
-                            </div>
+                            </div> */}
                         </div>
                         <div className={handleBoxState(0)}></div>
                     </div>
@@ -171,12 +189,12 @@ const BlackJackTable = () => {
                     <div className="player-box__content box-2">
                         <div className={!cardsInBox[1].pass ? "player-box"  : "player-box disabled"}>
                             {cardsInBox[1].img && <img src={cardsInBox[1].img} /> }
-                            <button className="pass--btn" onClick={pass}>Pass</button>
+                            {/* <button className="pass--btn" onClick={pass}>Pass</button> */}
                             {cardsInBox[1].value === 0 && <span className="player-box--text">Click to get card</span>}
                             <h6 style={handleSummaryColor(1)}>Suma: {cardsInBox[1].value}</h6>   
-                            <div className="box-info" onClick={cardsInBox[1].value < 21 && draw}>
+                            {/* <div className="box-info" onClick={cardsInBox[1].value < 21 && draw}>
                                 <span className="player-box--text">Click to get card</span>
-                            </div>
+                            </div> */}
                         </div>
                         <div className={handleBoxState(1)}></div>
                     </div>
@@ -184,12 +202,12 @@ const BlackJackTable = () => {
                     <div className="player-box__content bpx-3">
                         <div className={!cardsInBox[2].pass ? "player-box"  : "player-box disabled"}>
                             {cardsInBox[2].img && <img src={cardsInBox[2].img} /> }
-                            <button className="pass--btn" onClick={pass}>Pass</button>
+                            {/* <button className="pass--btn" onClick={pass}>Pass</button> */}
                             {cardsInBox[2].value === 0 && <span className="player-box--text">Click to get card</span>}
                             <h6 style={handleSummaryColor(2)}>Suma: {cardsInBox[2].value}</h6>   
-                            <div className="box-info" onClick={cardsInBox[2].value < 21 && draw}>
+                            {/* <div className="box-info" onClick={cardsInBox[2].value < 21 && draw}>
                                 <span className="player-box--text">Click to get card</span>
-                            </div>
+                            </div> */}
                         </div>
                         <div className={handleBoxState(2)}></div>
                     </div>
@@ -197,12 +215,12 @@ const BlackJackTable = () => {
                     <div className="player-box__content box-4">
                         <div className={!cardsInBox[3].pass ? "player-box"  : "player-box disabled"}>
                             {cardsInBox[3].img && <img src={cardsInBox[3].img} /> }
-                            <button className="pass--btn" onClick={pass}>Pass</button>
+                            {/* <button className="pass--btn" onClick={pass}>Pass</button> */}
                             {cardsInBox[3].value === 0 && <span className="player-box--text">Click to get card</span>}
                             <h6 style={handleSummaryColor(3)}>Suma: {cardsInBox[3].value}</h6>   
-                            <div className="box-info" onClick={cardsInBox[3].value < 21 && draw}>
+                            {/* <div className="box-info" onClick={cardsInBox[3].value < 21 && draw}>
                                 <span className="player-box--text">Click to get card</span>
-                            </div>
+                            </div> */}
                         </div>
                         <div className={handleBoxState(3)}></div>
                     </div>
@@ -210,18 +228,30 @@ const BlackJackTable = () => {
                     <div className="player-box__content box-5">
                         <div className={!cardsInBox[4].pass ? "player-box"  : "player-box disabled"}>
                             {cardsInBox[4].img && <img src={cardsInBox[4].img} /> }
-                            <button className="pass--btn" onClick={pass}>Pass</button>
+                            {/* <button className="pass--btn" onClick={pass}>Pass</button> */}
                             {cardsInBox[4].value === 0 && <span className="player-box--text">Click to get card</span>}
                             <h6 style={handleSummaryColor(4)}>Suma: {cardsInBox[4].value}</h6>   
-                            <div className="box-info" onClick={cardsInBox[4].value < 21 && draw}>
+                            {/* <div className="box-info" onClick={cardsInBox[4].value < 21 && draw}>
                                 <span className="player-box--text">Click to get card</span>
-                            </div>
+                            </div> */}
                             
                         </div>
                         <div className={handleBoxState(4)}></div>
                     </div>
                 </div>
+                <div className="buttons-wrapper">
+                    {!endGame ? 
+                    <><button className="primary--btn draw--btn" onClick={() => draw(cardsInBox[currentBox].value)}>Draw</button>
+                    <button className="primary--btn pass--btn" onClick={pass}>Pass</button></> 
+                    :
+                    <button className="primary--btn new-game--btn" onClick={newGame}>New Game</button>
+                    }
+                </div> 
             </section>
+            {endGame && 
+            <div className="end-game__modal">
+                <h2 className="end-game__modl--text">You win 100$</h2>
+            </div>}
         </section>
         
     )

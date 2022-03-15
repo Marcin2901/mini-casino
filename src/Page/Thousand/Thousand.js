@@ -4,12 +4,14 @@ import thousandImg from "../../images/thousand2.png";
 
 const Thousand = () => {
 
-    const description = `Thousand Schnapsen, 1000 or Tysiacha is a trick-taking game of the Ace-Ten
-                         family for three players, the aim of which is to score over 1000 points to win the game.`;
+    const description = `Five-card draw (also known as a Cantrell draw) is a poker variant that is considered the
+                         simplest variant of poker, and is the basis for video poker. As a result, it is often the
+                         first variant learned by new players. It is commonly played in home games but rarely played
+                         in casino and tournament play.`;
 
     return (
         <section className="game__container container">
-            <GameFrameComponent title="Thousand - 1000" img={thousandImg} description={description} link={"/"} />
+            <GameFrameComponent title="Poker 5 Cards" img={thousandImg} description={description} link={"/pokerFiveCards"} />
         </section>
     )
 }

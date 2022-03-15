@@ -1,0 +1,139 @@
+.poker-5-cards .poker__table--title {
+    right: 0;
+    top: 30%;
+    width: 100%;
+    font-size: 2rem;
+    text-align: center;
+}
+
+.poker-5-cards .player-container,
+.poker-5-cards .rival-container {
+    width: 200px;
+    height: 190px;
+    position: absolute;
+    display: flex;
+    flex-direction: column-reverse;
+}
+
+.poker-5-cards .player-container--header {
+    gap: 1rem;
+}
+
+
+.poker-5-cards .player-container {
+    top: 55%;
+    left: 10%;   
+}
+
+.poker-5-cards .rival-container-1 {
+    top: 55%;
+    right: 15%;
+
+}
+
+.poker-5-cards .rival-container-1 .player-container--header,
+.poker-5-cards .rival-container-2 .player-container--header {
+    flex-direction: row-reverse;
+}
+
+.poker-5-cards .rival-container-2 {
+    top: 10%;
+    right: 15%;
+}
+.poker-5-cards .rival-container-3 {
+    top: 10%;
+    left: 15%;
+}
+
+.poker-5-cards .player-container .player-box,
+.poker-5-cards .rival-container .player-box {
+    position: absolute;
+    top: 10%;
+    left: 0;
+    height: 120px;
+    width: 350px;
+    display: flex;
+    gap: .25rem;
+    border: none;
+}
+
+.poker-5-cards .rival-container-1 .player-box,
+.poker-5-cards .rival-container-2 .player-box,
+.poker-5-cards .rival-container-3 .player-box {
+    left: -40%;
+    top: 0;
+}
+
+.poker-5-cards .rival-container .bet-value {
+    top: 55%;
+}
+
+.poker-5-cards .rival-container-1 .bet-value,
+.poker-5-cards .rival-container-2 .bet-value {
+    left: 28%;
+}
+
+.card-img {
+    width: 20% !important;
+    height: 100px !important;
+    object-fit: cover;
+}
+
+.rival-card-0-img {
+    transform: translate(5px, 8px) rotate(-20deg);
+}
+
+.rival-card-1-img {
+    transform: translate(-20px, -5px) rotate(-10deg);
+}
+
+.rival-card-2-img {
+    transform: translate(-40px, -10px) ;
+}
+
+.rival-card-3-img {
+    transform: translate(-60px, -5px) rotate(10deg);
+}
+
+.rival-card-4-img {
+    transform: translate(-80px, 10px) rotate(20deg);
+}
+
+/* .user-card:hover {
+    transform: scale(1.05);
+} */
+
+.card-active {
+    transform: translateY(-10px)
+}
+
+/* .card-active:hover {
+    transform: translateY(-10px)
+} */
+
+.round-info {
+    position: absolute;
+    font-size: 1.1rem !important;
+    bottom: 15px;
+    left: 150px;
+    width: 200px;
+    text-align: center;
+    text-shadow: 0px 0px 5px red;
+}
+
+.poker-5-cards .poker-winner {
+    width: 90px;
+    height: 90px;
+    top: unset;
+    bottom: -10px;
+    left: -10px;
+    border: 5px solid #e9c966aa;
+    box-shadow: 0px 0px 25px 10px #e9c966;
+}
+
+.poker-5-cards .poker-winner-right {
+    left: unset;
+    right: -10px;
+}
+
+

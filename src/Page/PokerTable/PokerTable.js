@@ -22,7 +22,6 @@ const PokerTable = () => {
     const [userFold, setUserFold] = useState(false)
     const navigate = useNavigate();
     
-
     //pobranie tali kart i rozdanie każdemu po 2 karty
     useEffect(() => {
         fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
@@ -401,8 +400,10 @@ const PokerTable = () => {
             <div className="arrow-back" onClick={() => navigate("/")}><i className="fas fa-arrow-left"></i></div>
             <div className="poker__table">
                 <h1 className="poker__table--title">Poker</h1>
-                <span className="summary">Current Bet: {currentBet}</span>
-
+                <div className="summary">
+                    <span >{currentBet === 5 ? "Minimum Bet:" : "Current Bet: "} {currentBet}$</span>
+                    <span >Total: {licitate.user + licitate.rival1 + licitate.rival2 + licitate.rival3}$</span>
+                </div>
                 <div className="diller-container">
                     {dillerCards && 
                         dillerCards.map(card => <img key={card.code} src={card.image} className="diller-img"/>)

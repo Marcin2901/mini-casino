@@ -55,7 +55,6 @@
 .player-container {
     top: 55%;
     left: 20%;
-    
 }
 
 .rival-container-1 {
@@ -185,6 +184,17 @@
 .fold {
     opacity: .5;
 }
+
+.summary {
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    top: 40%;
+    display: flex;
+    flex-direction: column;
+}
+
 
 
 

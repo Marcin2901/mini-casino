@@ -301,6 +301,11 @@
     background-image: linear-gradient(blue, royalblue);
 }
 
+.btn-disabled {
+    opacity: .5;
+    cursor: default;
+}
+
 
 
 

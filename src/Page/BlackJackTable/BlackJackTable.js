@@ -16,9 +16,6 @@ const BlackJackTable = () => {
         fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=6")
             .then(res => res.json())
             .then(data => {
-                console.log(data)
-                // remaining = data.remaining;
-                // deck_id = data.deck_id;
                 setDeck({remaining: data.remaining, deck_id: data.deck_id})
                 dillerDraw(data.deck_id);
             })
@@ -29,7 +26,6 @@ const BlackJackTable = () => {
         .then(res => res.json())
         .then(data => { 
             const card = data.cards[0];
-
             const cardValue = calculateValue(card, dilletBox)
             setDillerBox(prevState => ({
                 value: prevState.value + cardValue,
@@ -96,13 +92,13 @@ const BlackJackTable = () => {
         
             if(cardsInBox.filter(box => box.pass === true).length === boxQuantity && !endGame) {
                    
-                       setTimeout(() => {
-                        if(dilletBox.value < 17) {
-                            dillerDraw(deck.deck_id)
-                        } else {
-                            checkGameResults()
-                        }
-                        }, 1000)        
+                setTimeout(() => {
+                    if(dilletBox.value < 17) {
+                        dillerDraw(deck.deck_id)
+                    } else {
+                        checkGameResults()
+                    }
+                }, 1000)        
             }
         }, [cardsInBox, dilletBox])
 
@@ -160,7 +156,10 @@ const BlackJackTable = () => {
         setBoxQuantity(5);
         setCurrentBox(0)
         setCardsInBox(getBoxSet());
+        if(deck.remaining < 50)
         setResetGame(prevState => !prevState)
+        else 
+        dillerDraw(deck.deck_id)
     }
 
     return (
@@ -176,12 +175,8 @@ const BlackJackTable = () => {
                     <div className="player-box__content box-1">
                         <div className={!cardsInBox[0].pass ? "player-box"  : "player-box disabled"}>
                             {cardsInBox[0].img && <img src={cardsInBox[0].img} /> }
-                            {/* <button className="pass--btn" onClick={pass}>Pass</button> */}
                             {cardsInBox[0].value === 0 && <span className="player-box--text">Click to get card</span>}
                             <h6 style={handleSummaryColor(0)}>Suma: {cardsInBox[0].value}</h6>   
-                            {/* <div className="box-info" onClick={cardsInBox[0].value < 21 && draw}>
-                                <span className="player-box--text">Click to get card</span>
-                            </div> */}
                         </div>
                         <div className={handleBoxState(0)}></div>
                     </div>
@@ -189,12 +184,8 @@ const BlackJackTable = () => {
                     <div className="player-box__content box-2">
                         <div className={!cardsInBox[1].pass ? "player-box"  : "player-box disabled"}>
                             {cardsInBox[1].img && <img src={cardsInBox[1].img} /> }
-                            {/* <button className="pass--btn" onClick={pass}>Pass</button> */}
                             {cardsInBox[1].value === 0 && <span className="player-box--text">Click to get card</span>}
                             <h6 style={handleSummaryColor(1)}>Suma: {cardsInBox[1].value}</h6>   
-                            {/* <div className="box-info" onClick={cardsInBox[1].value < 21 && draw}>
-                                <span className="player-box--text">Click to get card</span>
-                            </div> */}
                         </div>
                         <div className={handleBoxState(1)}></div>
                     </div>
@@ -202,12 +193,8 @@ const BlackJackTable = () => {
                     <div className="player-box__content bpx-3">
                         <div className={!cardsInBox[2].pass ? "player-box"  : "player-box disabled"}>
                             {cardsInBox[2].img && <img src={cardsInBox[2].img} /> }
-                            {/* <button className="pass--btn" onClick={pass}>Pass</button> */}
                             {cardsInBox[2].value === 0 && <span className="player-box--text">Click to get card</span>}
                             <h6 style={handleSummaryColor(2)}>Suma: {cardsInBox[2].value}</h6>   
-                            {/* <div className="box-info" onClick={cardsInBox[2].value < 21 && draw}>
-                                <span className="player-box--text">Click to get card</span>
-                            </div> */}
                         </div>
                         <div className={handleBoxState(2)}></div>
                     </div>
@@ -215,12 +202,8 @@ const BlackJackTable = () => {
                     <div className="player-box__content box-4">
                         <div className={!cardsInBox[3].pass ? "player-box"  : "player-box disabled"}>
                             {cardsInBox[3].img && <img src={cardsInBox[3].img} /> }
-                            {/* <button className="pass--btn" onClick={pass}>Pass</button> */}
                             {cardsInBox[3].value === 0 && <span className="player-box--text">Click to get card</span>}
                             <h6 style={handleSummaryColor(3)}>Suma: {cardsInBox[3].value}</h6>   
-                            {/* <div className="box-info" onClick={cardsInBox[3].value < 21 && draw}>
-                                <span className="player-box--text">Click to get card</span>
-                            </div> */}
                         </div>
                         <div className={handleBoxState(3)}></div>
                     </div>
@@ -228,21 +211,18 @@ const BlackJackTable = () => {
                     <div className="player-box__content box-5">
                         <div className={!cardsInBox[4].pass ? "player-box"  : "player-box disabled"}>
                             {cardsInBox[4].img && <img src={cardsInBox[4].img} /> }
-                            {/* <button className="pass--btn" onClick={pass}>Pass</button> */}
                             {cardsInBox[4].value === 0 && <span className="player-box--text">Click to get card</span>}
                             <h6 style={handleSummaryColor(4)}>Suma: {cardsInBox[4].value}</h6>   
-                            {/* <div className="box-info" onClick={cardsInBox[4].value < 21 && draw}>
-                                <span className="player-box--text">Click to get card</span>
-                            </div> */}
-                            
                         </div>
                         <div className={handleBoxState(4)}></div>
                     </div>
                 </div>
                 <div className="buttons-wrapper">
                     {!endGame ? 
-                    <><button className="primary--btn draw--btn" onClick={() => draw(cardsInBox[currentBox].value)}>Draw</button>
-                    <button className="primary--btn pass--btn" onClick={pass}>Pass</button></> 
+                    <><button className={`primary--btn draw--btn ${!cardsInBox[currentBox] && "btn-disabled"}`} onClick={() => draw(cardsInBox[currentBox].value)}>Draw</button>
+                    <button className={`primary--btn pass--btn ${!cardsInBox[currentBox] || cardsInBox[currentBox].value === 0 ? "btn-disabled" : ""}`}
+                            onClick={cardsInBox[currentBox] && cardsInBox[currentBox].value !== 0 && pass}> Pass
+                    </button></> 
                     :
                     <button className="primary--btn new-game--btn" onClick={newGame}>New Game</button>
                     }

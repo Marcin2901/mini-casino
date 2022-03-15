@@ -14,6 +14,7 @@ import Thousand from "./Page/Thousand/Thousand";
 import Footer from "./Page/Footer/Footer";
 import BlackJackTable from "./Page/BlackJackTable/BlackJackTable";
 import PokerTable from "./Page/PokerTable/PokerTable";
+import PokerFiveCardsTable from "./Page/PokerFiveCardsTable/PokerFiveCardsTable";
 
 function App() {
   
@@ -38,26 +39,9 @@ function App() {
           <Footer />
           </>
         } />
-          {/* <Navbar />
-          <Hero />
-          <About />
-          <GameMenu />
-          <Testimonials />
-          <div className="game-frame--section">
-            <Poker />
-            <BlackJack />
-            <Roulette />
-            <War />
-            <Thousand />
-          </div>
-          <Footer /> */}
-        {/* </Route> */}
-
         <Route path={"/blackJack"} element={<BlackJackTable />} />
-
-            {/* <BlackJackTable /> */}
-        {/* </Route> */}
         <Route path="/poker" element={<PokerTable />}/>
+        <Route path="/pokerFiveCards" element={<PokerFiveCardsTable />}/>
       </Routes>
       {/* 
         sekcja 2 - wybór gier z menu

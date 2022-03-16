@@ -41,6 +41,7 @@ const PokerFiveCardsTable = () => {
             .then(res => res.json())
             .then(data => {
                 const cards = data.cards;
+                console.log(cards)
                 setUser(
                    {name: "user", userCards: getCards(cards, 5), value: 0, allIn: false, winner: false}
                 )
@@ -200,78 +201,6 @@ const PokerFiveCardsTable = () => {
         const newValue = licitate[licitator] + parseInt(value);
         setLicitate(prevState => ({...prevState, [licitator]:  newValue > currentBet ? newValue : currentBet}));
     }
-
-    //dodanie karty przez dilera [3 lub 1]
-    // const dillerMove = () => {
-    //     if(dillerCards.length === 0) {
-    //         fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=3`)
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 const cards = data.cards;
-    //                 setDillerCards(cards)
-    //             })
-    //     } else if(dillerCards.length < 5) {
-    //         fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=1`)
-    //             .then(res => res.json())
-    //             .then(data => {
-    //                 const card = data.cards[0];
-    //                 setDillerCards(prevState => [...prevState, card])
-    //             })
-    //     }     
-    // }
-
-    //sprawdzenie czy gra się nie zakończyła [czy diller wyłożył 5 kart]
-    // useEffect(() => {
-    //      if(dillerCards.length === 5) {
-    //         setEndGame(true);   
-    //         let result = !userFold ? checkHand(user.userCards) : {value: -1};
-    //         let handValue = convertValue(playersCards.userCards).reduce((acumulato, current) => acumulato + current.value, 0)
-          
-    //         rivales.forEach(rival => {
-    //             let rivalResult = checkHand(rival.rivalCards);
-    //             if(result.value < rivalResult.value) {
-    //                 result = rivalResult;
-    //                 handValue = convertValue(rival.rivalCards).reduce((acumulato, current) => acumulato + current.value, 0)
-    //             }else if(result.value === 0 && rivalResult.value === 0) {
-    //                 let currentPlayerCardsValue = convertValue(rival.rivalCards).reduce((acumulato, current) => acumulato + current.value, 0)
-    //                 if(handValue < currentPlayerCardsValue) {
-    //                     result = rivalResult
-    //                     handValue = currentPlayerCardsValue
-    //                 }
-    //             }
-    //              else if(result.value === rivalResult.value) {
-    //                 let firstPlayerCardsValue = result.cards.reduce((acumulator, current) => acumulator + current.value, 0);
-    //                 let secondPlayerCardsValue = rivalResult.cards.reduce((acumulator, current) => acumulator + current.value, 0);
-    //                 if(firstPlayerCardsValue < secondPlayerCardsValue) {
-    //                     result = rivalResult 
-    //                 }
-    //                 else if(firstPlayerCardsValue === secondPlayerCardsValue) {
-    //                     let currentPlayerCardsValue = convertValue(rival.rivalCards).reduce((acumulato, current) => acumulato + current.value, 0)
-    //                     if(handValue < currentPlayerCardsValue) {
-    //                         result = rivalResult
-    //                         handValue = currentPlayerCardsValue
-    //                     }
-    //                 }
-    //             }              
-    //         })
-         
-    //         if(JSON.stringify(checkHand(playersCards.userCards)) === JSON.stringify(result) && !userFold) {
-    //             setPlayersCards(prevState => ({...prevState, winner: true}))
-    //         } else {
-    //             const winnerRival = rivales.find(rival => JSON.stringify(checkHand(rival.rivalCards)) === JSON.stringify(result))
-    //             setRivales(prevState => {
-    //                 const nextState = [];
-    //                 for(let obj of prevState) {
-    //                     if(obj === winnerRival)
-    //                     nextState.push({...obj, winner: true})
-    //                     else
-    //                     nextState.push(obj)
-    //                 }
-    //                 return nextState
-    //             })
-    //         }
-    //     }
-    // }, [dillerCards])
 
     const newGame = () => { 
         fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")

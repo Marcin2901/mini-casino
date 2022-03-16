@@ -10,7 +10,7 @@ const War = () => {
 
     return (
         <section className="game__container container">
-            <GameFrameComponent title={"War"} img={warImg} description={description} link={"/"} />
+            <GameFrameComponent title={"War"} img={warImg} description={description} link={"/war"} />
         </section>
     )
 }

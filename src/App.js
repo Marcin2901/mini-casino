@@ -15,6 +15,7 @@ import Footer from "./Page/Footer/Footer";
 import BlackJackTable from "./Page/BlackJackTable/BlackJackTable";
 import PokerTable from "./Page/PokerTable/PokerTable";
 import PokerFiveCardsTable from "./Page/PokerFiveCardsTable/PokerFiveCardsTable";
+import WarTable from "./Page/WarTable/WarTable";
 
 function App() {
   
@@ -42,6 +43,7 @@ function App() {
         <Route path={"/blackJack"} element={<BlackJackTable />} />
         <Route path="/poker" element={<PokerTable />}/>
         <Route path="/pokerFiveCards" element={<PokerFiveCardsTable />}/>
+        <Route path="/war" element={<WarTable />}/>
       </Routes>
       {/* 
         sekcja 2 - wybór gier z menu

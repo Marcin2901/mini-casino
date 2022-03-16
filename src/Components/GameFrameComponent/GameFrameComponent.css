@@ -52,3 +52,14 @@
 .link-text:hover {
     color: #e9c966;
 }
+
+.not-available--btn {
+    cursor: default;
+    opacity: .5;
+    box-shadow: none;
+}
+
+.not-available--btn:hover {
+    transform: none !important;
+    background-position: left;
+}

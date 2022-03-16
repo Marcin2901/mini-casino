@@ -83,15 +83,41 @@
 }
 
 .game-box:nth-child(4) {
-    background-image: url("../../images/roulette-menu.jpg");
+    background-image: url("../../images/thousand-menu.png");
 }
 
 .game-box:nth-child(5) {
     background-image: url("../../images/war-menu.jpg");
+    
 }
 
 .game-box:nth-child(6) {
-    background-image: url("../../images/thousand-menu.png");
+    background-image: url("../../images/roulette-menu.jpg");
+    overflow: hidden;
+}
+
+.game-box:nth-child(6):hover {
+    transform: none;
+    box-shadow: 0px 0px 10px 1px #fff;
+}
+
+.game-box:nth-child(6)::before {
+    opacity: .6;
+    z-index: 2;
+}
+
+.game-box:nth-child(6)::after {
+    position: absolute;
+    content: "Comming soon";
+    right: -12%;
+    top: 20%;
+    background-color: #fff;
+    color: green;
+    transform: rotate(45deg);
+    text-align: center;
+    width: 200px;
+    padding: 5px 5px 7px;
+    z-index: 3;
 }
 
 .game-name {

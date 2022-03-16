@@ -17,7 +17,9 @@ const GameFrameComponent = (props) => {
                      <p className="link-text">Click here to see all {title} rouls</p>
                 </Link>
                 <Link to={link} className="play--btn">
-                    <button className="primary--btn primary--btn-m">Play</button>
+                    <button className={`${title === "Roulette" && "not-available--btn"} primary--btn primary--btn-m`}>
+                        {title === "Roulette" ? "Not available yet" : "Play"}
+                    </button>
                 </Link>
             </div>
         </div>

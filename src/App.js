@@ -10,12 +10,12 @@ import Poker from "./Page/Poker/Poker";
 import BlackJack from "./Page/BlackJack/BlackJack";
 import Roulette from "./Page/Roulette/Roulette";
 import War from "./Page/War/War";
-import Thousand from "./Page/Thousand/Thousand";
 import Footer from "./Page/Footer/Footer";
 import BlackJackTable from "./Page/BlackJackTable/BlackJackTable";
 import PokerTable from "./Page/PokerTable/PokerTable";
 import PokerFiveCardsTable from "./Page/PokerFiveCardsTable/PokerFiveCardsTable";
 import WarTable from "./Page/WarTable/WarTable";
+import Poker5Cards from "./Page/Poker5Cards/Poker5Cards";
 
 function App() {
   
@@ -33,9 +33,9 @@ function App() {
           <div className="game-frame--section">
             <Poker />
             <BlackJack />
-            <Roulette />
             <War />
-            <Thousand />
+            <Poker5Cards />
+            <Roulette />
           </div>
           <Footer />
           </>

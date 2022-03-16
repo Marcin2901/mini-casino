@@ -11,7 +11,7 @@ const BlackJack = () => {
                          Aces count as 1 or 11, and face cards as 10.`
 
     return (
-        <section className="game__container container">
+        <section id="blackJack" className="game__container container">
             <GameFrameComponent  title={"Black Jack"} img={blackJackImg} description={description} link={"/blackJack"} />
         </section>
     )

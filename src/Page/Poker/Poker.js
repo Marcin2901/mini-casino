@@ -10,7 +10,7 @@ const Poker = () => {
                         you want. Additionally, a poker is a tool you keep by a fireplace.`
 
     return (
-        <section className="game__container container">
+        <section id="poker" className="game__container container">
             <GameFrameComponent title={"Poker"} img={pokerImg} description={description} link={"/poker"}/>
         </section>
     )

@@ -9,7 +9,7 @@ const War = () => {
                          The objective of the game is to win all of the cards in the deck.`;
 
     return (
-        <section className="game__container container">
+        <section id="war" className="game__container container">
             <GameFrameComponent title={"War"} img={warImg} description={description} link={"/war"} />
         </section>
     )

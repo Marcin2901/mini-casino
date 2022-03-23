@@ -5,9 +5,9 @@ import GameFrameComponent from "../../Components/GameFrameComponent/GameFrameCom
 
 const Roulette = () => {
 
-    const description = `roulette, (from French: “small wheel”), gambling game in which players
+    const description = `roulette, gambling game in which players
                          bet on which red or black numbered compartment of a revolving wheel a small
-                         ball (spun in the opposite direction) will come to rest within. Bets are placed
+                         ball will come to rest within. Bets are placed
                          on a table marked to correspond with the compartments of the wheel.`
 
     return (

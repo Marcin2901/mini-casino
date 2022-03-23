@@ -1,6 +1,7 @@
 .poker__table {
-    width: 1000px;
-    height: 600px;
+    max-width: 1000px;
+    width: 100%;
+    min-height: 600px;
     position: relative;
     background-image: url("../../images/poker-table.png");
     background-color: #ffffff55;
@@ -24,7 +25,10 @@
     transform: translateX(-50%);
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 1rem;
+    flex-wrap: wrap;
+    min-width: 350px;
 }
 
 .poker--option button {
@@ -196,7 +200,107 @@
 }
 
 
+@media screen and (max-width: 1000px) {
 
+    .arrow-back {
+        top: 10px;
+    }
+
+    .poker--option {
+        bottom: -5%;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .player-container,
+    .rival-container {
+        width: 150px;
+        height: 150px;
+    }
+
+    .player-container .player-box,
+    .rival-container .player-box {
+        height: 90px;
+        width: 100px;
+    }
+
+    .card1-img {
+        width: 50% !important;
+        height: 70px !important;
+    }
+    
+    .card2-img {
+        width: 50% !important;
+        height: 70px !important;
+    }
+
+    .player-container--header h2 {
+        font-size: 1.2rem;
+    }
+    .img-box {
+        width: 40px;
+        height: 40px;
+    }
+
+    .diller-container {
+        width: min-content;
+        height: 70px;
+    }
+    
+    .diller-img {
+        width: 50px;
+        height: 100%;
+    }
+    
+    .poker--option {
+        bottom: -5%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .poker__table--title {
+        top: 5%;
+        right: 10%;
+        font-size: 2.5rem;
+    }
+    
+    .diller-container {
+       top: 15%;
+    }
+
+    .player-container {
+        top: 60%;
+        left: 5%;
+    }
+    
+    .rival-container-1 {
+        top: 60%;
+        right: 5%;
+    }
+    
+    .rival-container-2 {
+        top: 34%;
+        right: 1%;
+    }
+    .rival-container-3 {
+        top: 34%;
+        left: 0;
+    }
+
+    .bet-value {
+        font-size: .8rem;
+    }
+
+}
+
+
+@media screen and (max-width: 450px) {
+    .summary {
+        top: 27%;
+        font-size: .8rem;
+    }
+}
 
 
 

@@ -31,18 +31,124 @@
 .nav--right {
     display: flex;
     align-items: center;
-    gap: .5rem;
+    gap: 1rem;
     list-style: none;
     font-size: 1.2rem;
 }
 
-.nav--right li {
+.nav--right a {
     padding: 0 1rem;
     cursor: pointer;
     transition: color .2s ease-in-out;
 }
 
-.nav--right li:hover {
+.nav--right a:hover {
     color: orange;
     text-shadow: 1px 1px 25px rgb(233, 229, 27);
+}
+
+.nav .active {
+    color: orange
+}
+
+.nav .logo {
+    width: 70px;
+}
+
+.nav--hamburger {
+    width: 35px;
+    height: 35px;
+    display: none;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+}
+
+.nav--hamburger-line {
+    position: relative;
+    background-color: #fff;
+    width: 100%;
+    height: 4px;
+    transition: all .5s ease-in-out;
+}
+
+.nav--hamburger-line::before,
+.nav--hamburger-line::after {
+    width: 100%;
+    height: 3.5px;
+    position: absolute;
+    content: "";
+    left: 0;
+    background-color: #fff;
+    transition: all .5s ease-in-out;
+}
+
+
+.nav--hamburger-line::before {
+    top: -15px;
+}
+.nav--hamburger-line::after {
+    bottom: -15px;
+}
+
+.nav--hamburger-line--x {
+    background-color: transparent;
+}
+
+.nav--hamburger-line--x::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.nav--hamburger-line--x::after {
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+
+
+
+@media screen and (max-width: 800px){
+    .nav--left h4 {
+        font-size: 1.3rem;
+    }
+    .nav .logo {
+        width: 60px;
+    }
+    .nav--right {
+        font-size: 1rem;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .nav--right {
+        display: none;
+    }
+
+    .nav--right {
+        font-size: 1.2rem;
+    }
+
+    .nav--hamburger {
+        display: flex;
+    }
+}
+
+.nav--right-hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 0; 
+    left: 40%;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.9);
+    height: 100vh;
+    transition: all .5s ease-in-out;
+}
+
+.nav--hamburger-active {
+    display: flex;
 }

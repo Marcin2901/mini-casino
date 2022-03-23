@@ -53,7 +53,7 @@
     font-family: 'Syne Tactile', cursive;
     font-size: 2.5rem;
     color: #fff;
-    width: 500px;
+    max-width: 500px;
     text-shadow: 0px 0px 25px white, 0px 0px 15px red;
 }
 
@@ -91,7 +91,65 @@
     background-image: linear-gradient(transparent, #1f1d1d);
 }
 
+.hero--btn {
+    display: inline-block;
+    padding: .5rem 2rem .7rem;
+}
+
+@media screen and (max-width: 1300px) {
+    .hero-img {
+        width: 800px;
+    }
+}
+
+@media screen and (max-width: 1100px) {
+    .hero-img {
+        width: 600px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .hero-img {
+        width: 500px;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .hero__content {
+        padding-left: 2rem;
+     }
+}
+
+@media screen and (max-width: 550px) {
+    .casino--hero__title {
+        font-size: 4rem;
+    }
+
+    .casino--hero__text {
+        font-size: 2rem;
+    }
+    .hero-img {
+        width: 350px;
+        bottom: 10%;
+    }
+}
 
 
-
+@media screen and (max-width: 450px) {
+    .casino--hero__title::after {
+       
+        border-top: 5px solid transparent;
+        border-right: 330px solid orange;
+        border-bottom: 10px solid transparent;
+    }
+    .casino--hero__text {
+        font-size: 1.7rem;
+    }
+    .hero-img {
+        display: none;
+    }
+    .casino--hero .primary--btn {
+        font-size: 1rem;
+    }
+}
 

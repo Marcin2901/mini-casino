@@ -6,7 +6,7 @@ const GameMenu = () => {
 
     return (
         
-        <section className="game--menu">
+        <section id="gameMenu" className="game--menu">
             <h2 className="game--menu__title">Games Menu</h2>
              <div className="game-box">
                  {/* <img src={pokerMenuImg}/> */}

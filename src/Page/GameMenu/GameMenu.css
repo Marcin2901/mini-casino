@@ -4,10 +4,8 @@
     justify-content: space-evenly;
     gap: 2rem;
     align-content: center;
-    /* max-width: 1200px; */
-    /* margin: 0 auto; */
     padding: 7rem 7rem 0;
-    height: 140vh;
+    min-height: 140vh;
     position: relative;
     background-image: url("../../images//bg4.jpg");
     background-repeat: no-repeat;
@@ -136,8 +134,51 @@
     margin: 1rem;
 }
 
+@media screen and (max-width: 1450px) {
+    .game--menu {
+        padding: 15rem 7rem 5rem;
+    }
+    .game--menu__title {
+       top: 5%;
+    }
 
+}
 
+@media screen and (max-width: 600px) {
+    .game--menu__title {
+        top: 5%;
+        font-size: 3rem;
+        text-align: center;
+     }
+
+    .game--menu {
+        padding: 15rem 2rem 5rem;
+    }
+
+    .game-box:nth-child(6)::after {
+        width: 250px;
+        right: -23%;
+    }
+
+    .game-box {
+      
+        width: 350px;
+        height: 200px;
+    }
+
+    .game-name {
+        color: #fff;
+        font-size: 1.8rem;
+        position: relative;
+        z-index: 1;
+        text-shadow: 0px 0px 10px red;
+        margin: .5rem 1.5rem;
+    }
+
+    .menu--btn {
+         font-size: 1.2rem;
+    }
+}
 
 
 

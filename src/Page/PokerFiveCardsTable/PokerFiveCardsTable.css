@@ -17,6 +17,7 @@
 
 .poker-5-cards .player-container--header {
     gap: 1rem;
+
 }
 
 
@@ -136,4 +137,85 @@
     right: -10px;
 }
 
+@media screen and (max-width: 900px) {
+    .poker-5-cards .player-container {
+        top: 55%;
+        left: 0%;   
+    }
+    
+    .poker-5-cards .rival-container-1 {
+        top: 55%;
+        right: 5%;
+    }
+    .poker-5-cards .rival-container-2 {
+        top: 10%;
+        right: 5%;
+    }
+    .poker-5-cards .rival-container-3 {
+        top: 10%;
+        left: 5%;
+    }
+    .poker-5-cards .player-container .player-box {
+        gap: 0;
+    }
+    .poker-5-cards .card-img {
+        width: 50px !important;
+        height: 80px !important;
+        object-fit: cover;
+    }
+    .poker-5-cards .rival-container-1 .player-box,
+    .poker-5-cards .rival-container-2 .player-box {
+        justify-content: flex-end;
+        left: -40%;
+        top: 0;
+    }
+}
 
+@media screen and (max-width: 570px) {
+    .poker-5-cards .poker__table--title {
+        top: 0%;
+    }
+    .poker-5-cards .player-container {
+        height: 140px;
+        top: 62%;
+    }
+
+    .poker-5-cards .player-container .player-box {
+        left: -30px;
+        height: 80px;
+    }
+
+    .poker-5-cards .rival-container-1 .player-container--header,
+    .poker-5-cards .rival-container-2 .player-container--header,
+    .poker-5-cards .rival-container-3 .player-container--header {
+        transform: translateY(-60px);
+    }
+    .poker-5-cards .rival-container .bet-value {
+        top: 65%;
+        left: 28%;
+    }
+    
+    .poker-5-cards .rival-container-1 .bet-value,
+    .poker-5-cards .rival-container-2 .bet-value {
+        left: 48%;
+    }
+    .round-info { 
+        bottom: 0px;
+        left: 120px;
+    }
+}
+
+@media screen and (max-width: 470px) {
+    .poker-5-cards .rival-container-1 {
+        top: 40%;
+    }
+    .poker-5-cards .rival-container-3 {
+        top: 20%;
+        left: 10%;
+    }
+    .poker-5-cards .summary {
+        top: 50%;
+        width: max-content;
+        padding-left: .5rem;
+    }
+}

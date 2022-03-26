@@ -35,8 +35,6 @@ const BlackJackTable = () => {
         })
     }
 
-    // zrobić jeszcze jeden state przetrzymujący liczbe boxów
-    // na początku damy 5 potem zmień na wybór od 1 do 5
     const [endGame, setEndGame] = useState(false)
     const [boxQuantity, setBoxQuantity] = useState(5)
     const [currentBox, setCurrentBox] = useState(0);
@@ -166,6 +164,7 @@ const BlackJackTable = () => {
         <section className="table">
             <div className="arrow-back" onClick={() => navigate("/")}><i className="fas fa-arrow-left"></i></div>
             <section className="black-jack__table">
+                <h3 className="balck-jack__table--title">BLACKJACK</h3>
                 <div className="deller-box">
                       {dilletBox.img && <img src={dilletBox.img} /> }
                       <h6 style={{color: "#000"}}>Suma: {dilletBox.value}</h6>  
@@ -175,7 +174,6 @@ const BlackJackTable = () => {
                     <div className="player-box__content box-1">
                         <div className={!cardsInBox[0].pass ? "player-box"  : "player-box disabled"}>
                             {cardsInBox[0].img && <img src={cardsInBox[0].img} /> }
-                            {cardsInBox[0].value === 0 && <span className="player-box--text">Click to get card</span>}
                             <h6 style={handleSummaryColor(0)}>Suma: {cardsInBox[0].value}</h6>   
                         </div>
                         <div className={handleBoxState(0)}></div>
@@ -184,16 +182,14 @@ const BlackJackTable = () => {
                     <div className="player-box__content box-2">
                         <div className={!cardsInBox[1].pass ? "player-box"  : "player-box disabled"}>
                             {cardsInBox[1].img && <img src={cardsInBox[1].img} /> }
-                            {cardsInBox[1].value === 0 && <span className="player-box--text">Click to get card</span>}
                             <h6 style={handleSummaryColor(1)}>Suma: {cardsInBox[1].value}</h6>   
                         </div>
                         <div className={handleBoxState(1)}></div>
                     </div>
 
-                    <div className="player-box__content bpx-3">
+                    <div className="player-box__content box-3">
                         <div className={!cardsInBox[2].pass ? "player-box"  : "player-box disabled"}>
                             {cardsInBox[2].img && <img src={cardsInBox[2].img} /> }
-                            {cardsInBox[2].value === 0 && <span className="player-box--text">Click to get card</span>}
                             <h6 style={handleSummaryColor(2)}>Suma: {cardsInBox[2].value}</h6>   
                         </div>
                         <div className={handleBoxState(2)}></div>
@@ -202,7 +198,6 @@ const BlackJackTable = () => {
                     <div className="player-box__content box-4">
                         <div className={!cardsInBox[3].pass ? "player-box"  : "player-box disabled"}>
                             {cardsInBox[3].img && <img src={cardsInBox[3].img} /> }
-                            {cardsInBox[3].value === 0 && <span className="player-box--text">Click to get card</span>}
                             <h6 style={handleSummaryColor(3)}>Suma: {cardsInBox[3].value}</h6>   
                         </div>
                         <div className={handleBoxState(3)}></div>
@@ -211,7 +206,6 @@ const BlackJackTable = () => {
                     <div className="player-box__content box-5">
                         <div className={!cardsInBox[4].pass ? "player-box"  : "player-box disabled"}>
                             {cardsInBox[4].img && <img src={cardsInBox[4].img} /> }
-                            {cardsInBox[4].value === 0 && <span className="player-box--text">Click to get card</span>}
                             <h6 style={handleSummaryColor(4)}>Suma: {cardsInBox[4].value}</h6>   
                         </div>
                         <div className={handleBoxState(4)}></div>

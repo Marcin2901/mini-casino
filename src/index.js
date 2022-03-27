@@ -4,11 +4,14 @@ import {BrowserRouter as Router} from "react-router-dom";
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {UserCoinsContextProvider} from "./Context/UserCoinsContextProvider";
 
 ReactDOM.render(
-  <Router>
-    <App />
-  </Router>,
+  <UserCoinsContextProvider>
+    <Router>
+      <App />
+    </Router>
+  </UserCoinsContextProvider>,
   document.getElementById('root')
 );
 

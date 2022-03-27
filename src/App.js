@@ -16,6 +16,9 @@ import PokerTable from "./Page/PokerTable/PokerTable";
 import PokerFiveCardsTable from "./Page/PokerFiveCardsTable/PokerFiveCardsTable";
 import WarTable from "./Page/WarTable/WarTable";
 import Poker5Cards from "./Page/Poker5Cards/Poker5Cards";
+import UserProfile from "./Page/UserProfile/UserProfile";
+import AboutPage from "./Page/AboutPage/AboutPage";
+import GamesImfo from "./Page/GamesInfo/GamesInfo";
 
 function App() {
   
@@ -23,7 +26,7 @@ function App() {
   return (
     <div className="app">
       <Routes>
-        <Route exact path={"/"} element={
+        <Route path={"/"} element={
           <>
           <Navbar />
           <Hero />
@@ -44,6 +47,9 @@ function App() {
         <Route path="/poker" element={<PokerTable />}/>
         <Route path="/pokerFiveCards" element={<PokerFiveCardsTable />}/>
         <Route path="/war" element={<WarTable />}/>
+        <Route path="/user" element={<UserProfile />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/games" element={<GamesImfo />} />
       </Routes>
       {/* 
         sekcja 2 - wybór gier z menu

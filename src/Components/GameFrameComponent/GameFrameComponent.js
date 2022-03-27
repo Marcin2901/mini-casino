@@ -1,9 +1,10 @@
 import React from "react";
 import "./GameFrameComponent.css";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 const GameFrameComponent = (props) => {
 
+    const navigate = useNavigate();
     const {title, img, description, link} = props;
 
     return (
@@ -13,9 +14,7 @@ const GameFrameComponent = (props) => {
                 <h3>{title}</h3>
                 <p>{description}</p>
                 <h4>Rouls</h4>
-                <Link to={link}>
-                     <p className="link-text">Click here to see all {title} rouls</p>
-                </Link>
+                <p className="link-text" onClick={() => navigate("/games")}>Click here to see all {title} rouls</p>
                 <Link to={link} className="play--btn">
                     <button className={`${title === "Roulette" && "not-available--btn"} primary--btn primary--btn-m`}>
                         {title === "Roulette" ? "Not available yet" : "Play"}

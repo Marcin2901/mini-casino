@@ -1,0 +1,63 @@
+.games-info {
+    min-height: 100vh;
+}
+
+.game-info--hero {
+    background-image: url("../../images/bg.jpg");
+    background-position: center;
+    height: 90vh;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.game-info--hero h1 {
+    color: #fff;
+    font-size: 4rem;
+    max-width: 700px;
+    margin-left: 2rem;
+    text-shadow: 0px 0px 15px rgba(243, 188, 8, 0.904);
+}
+
+.games-info__container {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    color: rgba(255, 255, 255, 0.877);
+    margin: 0 auto;
+    padding: 5rem 1rem 3rem;
+}
+
+.games-info__container h2 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+.games-info__container p {
+    font-size: 1.1rem;
+    margin: 2rem 0;
+}
+
+.games-info__container img {
+    max-width: 100%;
+    width: 100%;
+    max-height: 600px;
+    box-shadow: 3px 3px 15px #fff;
+    border-radius: .5rem;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 700px) {
+    .game-info--hero h1 {
+        font-size: 2rem;
+    }
+}
+
+
+
+
+
+
+
+

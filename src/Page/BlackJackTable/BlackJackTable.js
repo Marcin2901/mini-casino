@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {useNavigate} from 'react-router-dom';
 import "./BlackJackTable.css";
+import { UserCoinsContext } from "../../Context/UserCoinsContextProvider";
 
 const BlackJackTable = () => {
 
@@ -46,6 +47,19 @@ const BlackJackTable = () => {
         return boxArray;
     }
     const [cardsInBox, setCardsInBox] = useState(getBoxSet())
+    const [coinsQuantity, setCoinsQuantity] = useState(0)
+    const {userCoins, setUserCoins} = useContext(UserCoinsContext)
+    useEffect(() => {
+        if(endGame) {
+            let coins = 0;
+            cardsInBox.forEach(box => {
+                if(box.win) coins += 20;
+                else if(!box.draw) coins -=10 
+            })
+            setCoinsQuantity(coins)
+            setUserCoins(prevState => prevState + coins)
+        }
+    }, [endGame])
 
     const draw = (value) => {
         value < 21 && 
@@ -163,6 +177,7 @@ const BlackJackTable = () => {
     return (
         <section className="table">
             <div className="arrow-back" onClick={() => navigate("/")}><i className="fas fa-arrow-left"></i></div>
+            <div className="table__user-coins">{userCoins}$</div>
             <section className="black-jack__table">
                 <h3 className="balck-jack__table--title">BLACKJACK</h3>
                 <div className="deller-box">
@@ -224,7 +239,7 @@ const BlackJackTable = () => {
             </section>
             {endGame && 
             <div className="end-game__modal">
-                <h2 className="end-game__modl--text">You win 100$</h2>
+                <h2 className="end-game__modl--text">{endGame && coinsQuantity >= 0 ? `You win ${coinsQuantity}$` : `You lose ${coinsQuantity}$`}</h2>
             </div>}
         </section>
         

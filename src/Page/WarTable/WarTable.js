@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./WarTable.css";
 import cardBack from "../../images/card-back.png";
+import { UserCoinsContext } from "../../Context/UserCoinsContextProvider";
 
 const WarTable = () => {
 
@@ -11,6 +12,7 @@ const WarTable = () => {
     const [warState, setWarState] = useState({isWar: false, rivalWarCard: {}, userWarCard: {}})
     const [endGame, setEndGame] = useState(false)
     const navigate = useNavigate()
+    const {userCoins, setUserCoins} = useContext(UserCoinsContext);
 
     useEffect(() => {
         fetch("https://deckofcardsapi.com/api/deck/new/shuffle/?deck_count=1")
@@ -19,6 +21,12 @@ const WarTable = () => {
             setDeck({deckId: data.deck_id, remaining: data.remaining})
         })
     }, [])
+
+    useEffect(() => {
+        if(endGame && user.winGame) {
+            setUserCoins(prevState => prevState + 10)
+        }
+    }, [endGame])
 
     const startRound = () => {
         fetch(`https://deckofcardsapi.com/api/deck/${deck.deckId}/draw/?count=2`)
@@ -35,15 +43,18 @@ const WarTable = () => {
 
 
 
-    const checkWinner = (userCard, rivalCard) => {
+    const checkWinner = (userCard, rivalCard, warPoints) => {
         if(convertValue(userCard) > convertValue(rivalCard)) {
             setUser(prevState => ({...prevState, winRound: true, points: prevState.points + 1}));
             setRival(prevState => ({...prevState, winRound: false}));
+            warPoints ? setUserCoins(prevState => prevState + 5) : setUserCoins(prevState => prevState + 1)
         } else if(convertValue(userCard) === convertValue(rivalCard)) {
             setWarState({isWar: true, rivalWarCard: rival.card, userWarCard: user.card})
+            
         } else {
             setUser(prevState => ({...prevState, winRound: false}));
             setRival(prevState => ({...prevState, winRound: true, points: prevState.points + 1}));
+            setUserCoins(prevState => prevState - 1)
         }
     }
 
@@ -56,7 +67,7 @@ const WarTable = () => {
             setUser(prevState => ({...prevState, card: [prevState.card, userCard[0], userCard[1]]}));
             setRival(prevState => ({...prevState, card: [prevState.card, rivalCard[0], rivalCard[1]]}));
             setDeck(prevState => ({...prevState, remaining: prevState.remaining -4 }))
-            checkWinner(userCard[1], rivalCard[1])
+            checkWinner(userCard[1], rivalCard[1], true)
             setWarState({isWar: false, rivalWarCard: {}, userWarCard: {}})
         })
         
@@ -105,6 +116,7 @@ const WarTable = () => {
     return (
     <section className="table">
         <div className="arrow-back" onClick={() => navigate("/")}><i className="fas fa-arrow-left"></i></div>
+        <div className="table__user-coins">{userCoins}$</div>
         <div className="war-table">
             <div className={rival && (rival.winRound && !warState.isWar) ? "war-table--card__container round-winner" : "war-table--card__container"}>
                 { (rival && rival.card.length !== 3 ) ? <img className="war-card--img" src={rival.card.image}/> : 

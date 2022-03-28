@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import { useNavigate } from "react-router-dom";
 import "./PokerTable.css";
 import userImg from "../../images/user-img.png";
 import rivalImg from "../../images/rival-img.jpg";
 import cardBack from "../../images/card-back.png";
+import { UserCoinsContext } from "../../Context/UserCoinsContextProvider";
 
 const PokerTable = () => {
 
@@ -14,8 +15,9 @@ const PokerTable = () => {
     const [currentBet, setCurrentBet] = useState(5);
     const [dillerCards, setDillerCards] = useState([]);
     const [playerMove, setPlayerMove] = useState(true);
-    const [endGame, setEndGame] = useState(false)
-    const [correction, setCorrection] = useState(false)
+    const [endGame, setEndGame] = useState(false);
+    const [correction, setCorrection] = useState(false);
+    const {userCoins, setUserCoins} = useContext(UserCoinsContext);
 
     const [licitate, setLicitate] = useState({});
     const [change, setChange] = useState(false)
@@ -113,6 +115,7 @@ const PokerTable = () => {
         if(licitate[licitator] !== currentBet)  {
             setLicitate(prevState => ({...prevState, [licitator]: currentBet}))
             setPlayerMove(false)
+            JSON.stringify(licitate[licitator]) === JSON.stringify(licitate.user) && setUserCoins(prevState => prevState - currentBet)
         }
     }
 
@@ -122,6 +125,7 @@ const PokerTable = () => {
                 setLicitate(prevState => ({...prevState, [licitator]:  newValue}));
                 setCurrentBet(newValue)
                 setPlayerMove(false)
+                setUserCoins(prevState => prevState - value)
             }
     }
 
@@ -201,6 +205,12 @@ const PokerTable = () => {
             }
         }
     }, [dillerCards])
+
+    useEffect(() => {
+        if(endGame && playersCards.winner) {
+            setUserCoins(prevState => prevState + licitate.user + licitate.rival1 + licitate.rival2 + licitate.rival3)
+        }
+    }, [endGame])
 
     const newGame = () => {
      
@@ -398,6 +408,7 @@ const PokerTable = () => {
     return (
         <section className="table">
             <div className="arrow-back" onClick={() => navigate("/")}><i className="fas fa-arrow-left"></i></div>
+            <div className="table__user-coins">{userCoins}$</div>
             <div className="poker__table">
                 <h1 className="poker__table--title">Poker</h1>
                 <div className="summary">
@@ -503,6 +514,10 @@ const PokerTable = () => {
                     }
                 </div>
             </div>
+            {endGame && playersCards.winner &&
+            <div className="end-game__modal">
+                <h2 className="end-game__modl--text">{`You win ${licitate.user + licitate.rival1 + licitate.rival2 + licitate.rival3}$`}</h2>
+            </div>}
         </section>
     )
 }

@@ -4,7 +4,7 @@
 
 .about-page__container {
     max-width: 1000px;
-    padding-top: 10rem;
+    padding: 10rem 1rem 0;
     margin: 0 auto;
 }
 
@@ -19,4 +19,13 @@
     font-size: 1.2rem;
     max-width: 1000px;
     padding-bottom: 5rem;
+}
+
+@media screen and (max-width: 600px) {
+    .about-page__container  h1{
+        font-size: 2rem;
+    }
+    .about-page__container p {
+        font-size: 1rem;
+    }
 }

@@ -1,9 +1,10 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useState, useContext} from "react";
 import { useNavigate } from "react-router-dom";
 import "./PokerFiveCardsTable.css";
 import userImg from "../../images/user-img.png";
 import rivalImg from "../../images/rival-img.jpg";
 import cardBack from "../../images/card-back.png";
+import { UserCoinsContext } from "../../Context/UserCoinsContextProvider";
 
 const PokerFiveCardsTable = () => {
 
@@ -15,6 +16,7 @@ const PokerFiveCardsTable = () => {
     const [playerMove, setPlayerMove] = useState(true);
     const [endGame, setEndGame] = useState(false)
     const [correction, setCorrection] = useState(false)
+    const {userCoins, setUserCoins} = useContext(UserCoinsContext);
 
     const [round, setRound] = useState(0)
     const [callGame, setCallGame] = useState(false)
@@ -113,7 +115,7 @@ const PokerFiveCardsTable = () => {
             }
         }
     }, [round])
-    console.log("round: " + round)
+
     useEffect(() => {
         const licitateArray = []
         let bigestLicitate = licitate.user;
@@ -170,11 +172,14 @@ const PokerFiveCardsTable = () => {
                 setCurrentBet(bigestLicitate);
                 setChange(prevState => !prevState)
             }
-          
-
-
         }
     }, [playerMove])
+
+    useEffect(() => {
+        if(endGame && user.winner) {
+            setUserCoins(prevState => prevState + licitate.user + licitate.rival1 + licitate.rival2 + licitate.rival3)
+        }
+    }, [endGame])
 
     const startLicitation = (func) => {
         func("user", betValue)
@@ -185,6 +190,7 @@ const PokerFiveCardsTable = () => {
             setLicitate(prevState => ({...prevState, [licitator]: currentBet}))
             setPlayerMove(false)
             if(!callGame) setCallGame(true);
+            JSON.stringify(licitate[licitator]) === JSON.stringify(licitate.user) && setUserCoins(prevState => prevState - currentBet)
         }
     }
 
@@ -194,6 +200,7 @@ const PokerFiveCardsTable = () => {
                 setLicitate(prevState => ({...prevState, [licitator]:  newValue}));
                 setCurrentBet(newValue)
                 setPlayerMove(false)
+                setUserCoins(prevState => prevState - value)
             }
     }
 
@@ -227,19 +234,18 @@ const PokerFiveCardsTable = () => {
     //     }
     // }
 
-    // const fold = () => {
-    //     setUserFold(true)
-    //     const missesCards = 5 - dillerCards.length;
+    const fold = () => {
+        rivalChange();
+        setTimeout(() => {
+            setUserFold(true)
+            setEndGame(true)
+            const mockLicitate = getRandomNumber(currentBet, currentBet + 50)
+            setLicitate(prevState => ({...prevState, rival1: mockLicitate, rival2: mockLicitate, rival3: mockLicitate}))
+            setRound(3);
+        }, 500)
         
-    //     fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=${missesCards}`)
-    //     .then(res => res.json())
-    //     .then(data => {
-    //         const cards = data.cards
-    //         setDillerCards(prevState => [...prevState.concat(cards)])   
-    //         const mockLicitate = getRandomNumber(currentBet, currentBet + 50)
-    //         setLicitate(prevState => ({...prevState, rival1: mockLicitate, rival2: mockLicitate, rival3: mockLicitate}))
-    //     }) 
-    // }
+        
+    }
 
     const getRandomNumber = (min, max) => {
         return Math.floor(Math.random() * (max - min) + min)
@@ -469,6 +475,7 @@ const PokerFiveCardsTable = () => {
     return (
         <section className="table">
             <div className="arrow-back" onClick={() => navigate("/")}><i className="fas fa-arrow-left"></i></div>
+            <div className="table__user-coins">{userCoins}$</div>
             <div className="poker__table poker-5-cards">
                 <h1 className="poker__table--title">Poker 5 Cards</h1>
                 <div className="summary">
@@ -565,13 +572,9 @@ const PokerFiveCardsTable = () => {
                 <div className="poker--option"> 
                     {!endGame ?
                     <>
-                    {/* <button onClick={fold}>Fold</button>   */}
-                    <button className={!callGame && "btn-disable"} >Fold</button>  
-                    {/* <button className={licitate.user !== currentBet ? "btn-disable" : ""} onClick={check}>Check</button> */
-                     <button className={(round === 2 && !changed ) ? "" : "btn-disable"}  onClick={round === 2 ? changeCards : undefined}>Change</button>}
-                    {/* <button className={licitate.user === currentBet ? "btn-disable" : ""} onClick={() => startLicitation(call)}>Call</button> */}
+                    <button onClick={fold}>Fold</button>  
+                    <button className={(round === 2 && !changed ) ? "" : "btn-disable"}  onClick={round === 2 ? changeCards : undefined}>Change</button>
                     <button className={licitate.user === currentBet ? "btn-disable" : "" } onClick={() => startLicitation(call)}>Call</button>
-                    {/* <button onClick={() => startLicitation((a) => bet(a, betValue))}>Bet</button> */}
                     <button className={(!callGame || (round === 2 && !changed )) && "btn-disable"} onClick={() => startLicitation((a) => bet(a, betValue))}>Bet</button>
                     <input type="number"
                            name="betValue"
@@ -582,6 +585,10 @@ const PokerFiveCardsTable = () => {
                     }
                 </div>
             </div>
+            {endGame && user.winner &&
+            <div className="end-game__modal">
+                <h2 className="end-game__modl--text">{`You win ${licitate.user + licitate.rival1 + licitate.rival2 + licitate.rival3}$`}</h2>
+            </div>}
         </section>
     )
 }

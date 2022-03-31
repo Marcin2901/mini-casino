@@ -1,5 +1,4 @@
 import React from "react"
-import "./Roulette.css";
 import rouletteImg from "../../images/roulette.jpg";
 import GameFrameComponent from "../../Components/GameFrameComponent/GameFrameComponent";
 

@@ -45,7 +45,6 @@
   width: 50%;
   transform: translate(-50%, -50%);
   height: 80%;
-  /* background-color: #00000055; */
   background-image: url("./images//end-game.png");
   background-size: cover;
   background-position: center;
@@ -56,6 +55,7 @@
   animation: flade 3s ease-in-out;
 }
 
+
 .end-game__modal--content {
   width: 50%;
   min-height: 500px;
@@ -63,6 +63,41 @@
   opacity: 1;
   animation: flade 3s ease-in-out;
 }
+
+@media screen and (max-width: 1150px) {
+  .end-game__modal {
+    width: 700px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .end-game__modal h2 {
+    font-size: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .end-game__modal {
+    width: 500px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .end-game__modal h2 {
+    font-size: 2.5rem;
+    margin-bottom: 4rem;
+  }
+}
+@media screen and (max-width: 550px) {
+  .end-game__modal {
+    width: 350px;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+  .end-game__modal h2 {
+    font-size: 2rem;
+    margin-bottom: 4rem;
+  }
+}
+
 
 @keyframes flade {
   0% {
@@ -110,13 +145,3 @@
   cursor: pointer;
   z-index: 2;
 }
-
-
-
-
-
-
-
-
-
-

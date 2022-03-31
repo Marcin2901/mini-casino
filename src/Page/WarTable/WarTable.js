@@ -148,7 +148,6 @@ const WarTable = () => {
             </div>
             { !endGame ?
             <button className="primary--btn next-round--btn" onClick={!warState.isWar ? startRound : war}>
-                {/* zawsze jest next round bo 52 czyli warunek ze start war musi być wcześniej */}
                 {(deck && deck.remaining !== 52 && !warState.isWar) ? "Next Round" : warState.isWar ? "Start War" : "Start Battle"}
             </button> :
             <button className="primary--btn new-game--btn" onClick={newGame}>New Game</button>

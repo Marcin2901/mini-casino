@@ -34,6 +34,10 @@
     margin-bottom: 2rem;
 }
 
+.games-info__container h4 {
+    color: #f0dc6d;
+}
+
 .games-info__container p {
     font-size: 1.1rem;
     margin: 2rem 0;
@@ -53,11 +57,3 @@
         font-size: 2rem;
     }
 }
-
-
-
-
-
-
-
-

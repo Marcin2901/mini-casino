@@ -228,12 +228,6 @@ const PokerFiveCardsTable = () => {
     
     }
 
-    // const check = () => {
-    //     if(licitate.user === currentBet) {  
-    //         setPlayerMove(false);   
-    //     }
-    // }
-
     const fold = () => {
         rivalChange();
         setTimeout(() => {
@@ -469,24 +463,18 @@ const PokerFiveCardsTable = () => {
 
         })
     }
-    // console.log(user)
-    // cardsToChange.find(c => c === card ? false : true)
-    // .concat(getCards(cards, cardsToChange.length)) 
+
     return (
         <section className="table">
             <div className="arrow-back" onClick={() => navigate("/")}><i className="fas fa-arrow-left"></i></div>
             <div className="table__user-coins">{userCoins}$</div>
             <div className="poker__table poker-5-cards">
+
                 <h1 className="poker__table--title">Poker 5 Cards</h1>
                 <div className="summary">
                     <span >{currentBet === 5 ? "Minimum call to play:" : "Current Bet: "} {currentBet}$</span>
                     <span >Total: {licitate.user + licitate.rival1 + licitate.rival2 + licitate.rival3}$</span>
                 </div>
-                {/* <div className="diller-container">
-                    {dillerCards && 
-                        dillerCards.map(card => <img key={card.code} src={card.image} className="diller-img"/>)
-                    }
-                </div> */}
 
                 <div className={`player-container ${userFold && "fold"}`}>
                     <div className="player-container--header">
@@ -508,7 +496,6 @@ const PokerFiveCardsTable = () => {
                                                         src={callGame ? card.image : cardBack} 
                                                         onClick={() => round === 2 ? addCardToChange(card) : undefined}
                                                     />)
-                       
                         }
                     </div>
                     {user && <span className="bet-value">bet: {licitate.user}$</span>}

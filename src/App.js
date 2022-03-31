@@ -51,12 +51,6 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/games" element={<GamesImfo />} />
       </Routes>
-      {/* 
-        sekcja 2 - wybór gier z menu
-        sekcja 3 - testimonials albo coś w tym rodzaju
-        sekcja 4-10 gry - {poker, black-jack, ruletka, wojna, 1000, 9}
-        sekcja 11 - footer
-      */}
     </div>
   );
 }

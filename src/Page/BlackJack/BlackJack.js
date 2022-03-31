@@ -1,6 +1,5 @@
 import React from "react";
 import GameFrameComponent from "../../Components/GameFrameComponent/GameFrameComponent";
-import "./BlackJack.css";
 import blackJackImg from "../../images/black-jack.jpg";
 
 const BlackJack = () => {

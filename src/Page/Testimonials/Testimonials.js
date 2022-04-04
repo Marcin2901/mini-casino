@@ -51,13 +51,13 @@ const Testimonials = () => {
 
             <div className="author__container">
                 <div className={testimonials.tes1 ? "author--img active" : "author--img"} onClick={() => handleClick("tes1")}>
-                    <img src={author1}/>
+                    <img src={author1} alt={"example"}/>
                 </div>
                 <div className={testimonials.tes2 ? "author--img active" : "author--img"} onClick={() => handleClick("tes2")}>
-                    <img src={author2}/>
+                    <img src={author2} alt={"example"}/>
                 </div>
                 <div className={testimonials.tes3 ? "author--img active" : "author--img"} onClick={() => handleClick("tes3")}>
-                    <img src={author3}/>
+                    <img src={author3} alt={"example"}/>
                 </div>
             </div>
         </section>

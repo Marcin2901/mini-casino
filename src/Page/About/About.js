@@ -11,8 +11,8 @@ const About = () => {
     return (
         <section className="about">
             <div className="about--images">
-                <img className="about--img" src={aboutImg}/>
-                <img className="about--treasure" src={aboutTreasure} />
+                <img className="about--img" src={aboutImg} alt={"example"}/>
+                <img className="about--treasure" src={aboutTreasure} alt={"example"}/>
             </div>
             <div className="about--content">
                 <h1>About Us</h1>

@@ -417,14 +417,14 @@ const PokerTable = () => {
                 </div>
                 <div className="diller-container">
                     {dillerCards && 
-                        dillerCards.map(card => <img key={card.code} src={card.image} className="diller-img"/>)
+                        dillerCards.map(card => <img key={card.code} src={card.image} className="diller-img" alt={"example"}/>)
                     }
                 </div>
 
                 <div className={`player-container ${userFold && "fold"}`}>
                     <div className="player-container--header">
                         <div className="img-box">
-                            <img src={userImg}/>
+                            <img src={userImg} alt={"example"}/>
                         </div>
                         <div className="player-info">
                             <h2>User</h2>    
@@ -433,8 +433,8 @@ const PokerTable = () => {
                     </div>
                     <div className="player-box">
                         {playersCards &&
-                        <><img className="card1-img" src={playersCards.userCards[0].image}/>
-                          <img className="card2-img" src={playersCards.userCards[1].image}/></>
+                        <><img className="card1-img" src={playersCards.userCards[0].image} alt={"example"}/>
+                          <img className="card2-img" src={playersCards.userCards[1].image} alt={"example"}/></>
                         }
                     </div>
                     {playersCards && <span className="bet-value">bet: {licitate.user}$</span>}
@@ -443,7 +443,7 @@ const PokerTable = () => {
                 <div className="rival-container rival-container-1">
                     <div className="player-container--header">
                         <div className="img-box">
-                            <img src={rivalImg}/>
+                            <img src={rivalImg} alt={"example"}/>
                         </div>
                         <div className="player-info">
                             <h2>Rival</h2>    
@@ -452,8 +452,8 @@ const PokerTable = () => {
                     </div>
                     <div className="player-box">
                         {playersCards && 
-                        <><img className="card1-img" src={endGame ? rivales[0].rivalCards[0].image : cardBack}/>
-                          <img className="card2-img" src={endGame ? rivales[0].rivalCards[1].image : cardBack}/></>
+                        <><img className="card1-img" src={endGame ? rivales[0].rivalCards[0].image : cardBack} alt={"example"}/>
+                          <img className="card2-img" src={endGame ? rivales[0].rivalCards[1].image : cardBack} alt={"example"}/></>
                         }    
                     </div>    
                     {rivales && <span className="bet-value">bet: {licitate.rival1}$</span>}
@@ -462,7 +462,7 @@ const PokerTable = () => {
                 <div className="rival-container rival-container-2">
                     <div className="player-container--header">
                         <div className="img-box">
-                            <img src={rivalImg}/>
+                            <img src={rivalImg} alt={"example"}/>
                         </div>
                         <div className="player-info">
                             <h2>Rival</h2>    
@@ -471,8 +471,8 @@ const PokerTable = () => {
                     </div>
                     <div className="player-box">
                         {playersCards && 
-                        <><img className="card1-img" src={endGame ? rivales[1].rivalCards[0].image : cardBack}/>
-                          <img className="card2-img" src={endGame ? rivales[1].rivalCards[1].image : cardBack}/></>
+                        <><img className="card1-img" src={endGame ? rivales[1].rivalCards[0].image : cardBack} alt={"example"}/>
+                          <img className="card2-img" src={endGame ? rivales[1].rivalCards[1].image : cardBack} alt={"example"}/></>
                         }     
                     </div> 
                     {rivales && <span className="bet-value">bet: {licitate.rival2}$</span>}
@@ -481,7 +481,7 @@ const PokerTable = () => {
                 <div className="rival-container rival-container-3">
                     <div className="player-container--header">
                         <div className="img-box">
-                            <img src={rivalImg}/>
+                            <img src={rivalImg} alt={"example"}/>
                         </div>
                         <div className="player-info">
                             <h2>Rival</h2>    
@@ -490,8 +490,8 @@ const PokerTable = () => {
                     </div>
                     <div className="player-box">
                         {playersCards && 
-                        <><img className="card1-img" src={endGame ? rivales[2].rivalCards[0].image : cardBack}/>
-                          <img className="card2-img" src={endGame ? rivales[2].rivalCards[1].image : cardBack}/></>
+                        <><img className="card1-img" src={endGame ? rivales[2].rivalCards[0].image : cardBack} alt={"example"}/>
+                          <img className="card2-img" src={endGame ? rivales[2].rivalCards[1].image : cardBack} alt={"example"}/></>
                         } 
                     </div>     
                     {rivales && <span className="bet-value">bet: {licitate.rival3}$</span>}

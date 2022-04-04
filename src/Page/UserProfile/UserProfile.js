@@ -1,6 +1,5 @@
 import React, { useContext } from "react";
 import "./UserProfile.css";
-import {useNavigate} from "react-router-dom";
 import userImg from "../../images/user-img.png";
 import { UserCoinsContext } from "../../Context/UserCoinsContextProvider";
 import Navbar from "../Navbar/Navbar";
@@ -17,7 +16,7 @@ function UserProfile() {
                 <h1 className="user-profile--header">Account</h1>
                 <div className="user-profile__content">
                     <div className="user-profile__content--left">
-                        <img src={userImg}/>
+                        <img src={userImg} alt={"example"}/>
                     </div>
                     <div className="user-profile__content--right">
                         <h3>Account details</h3>

@@ -18,7 +18,7 @@ function GamesImfo() {
             <div className="games-info__container">
                 <div className="games-info--poker">
                     <h2>Poker Rouls</h2>
-                    <img src={pokerImg}/>
+                    <img src={pokerImg} alt={"example"}/>
                     <p>As early as the sixteenth century, Germans played a bluffing game called "Pochen."
                        It later developed into a French version, called "Poque," which was eventually brought over
                        to New Orleans and played on the riverboats that plied the Mississippi.
@@ -125,7 +125,7 @@ function GamesImfo() {
                 </div>
                 <div className="games-info--poker-5-cards">
                     <h2>Poker 5 Cards Rouls</h2>
-                    <img src={poker5CardsImg}/>
+                    <img src={poker5CardsImg} alt={"example"}/>
                     <h4>The Deck</h4>
                     <p>In order to play a Poker game, you’ll need a classic 4-suits 52-cards deck. You don’t
                        need Jokers, unless you want to play with wildcards (for now I suggest you to stick with
@@ -148,7 +148,7 @@ function GamesImfo() {
                 </div>
                 <div className="games-info--blackjack">
                     <h2>BlackJack Rouls</h2>
-                    <img src={blackJackImg}/>
+                    <img src={blackJackImg} alt={"example"}/>
                  
                     <p>Equally well known as Twenty-One.&nbsp;The rules are simple, the play is thrilling, and there is opportunity for high strategy. In fact, for the expert player who mathematically plays a perfect game and is able to count cards, the odds are sometimes in that player's favor to win.</p>
                     <p>But even for the casual participant who plays a reasonably good game, the casino odds are less, making Blackjack one of the most attractive casino games for the player. While the popularity of Blackjack dates from World War I, its roots go back to the 1760s in France, where it is called Vingt-et-Un (French for 21). Today, Blackjack is the one card game that can be found in every American casino. As a popular home game, it is played with slightly different rules. In the casino version, the house is the dealer (a "permanent bank"). In casino play, the dealer remains standing, and the players are seated. The dealer is in charge of running all aspects of the game, from shuffling and dealing the cards to handling all bets. In the home game, all of the players have the opportunity to be the dealer (a "changing bank").</p>
@@ -193,7 +193,7 @@ function GamesImfo() {
                 </div>
                 <div className="games-info--war">
                     <h2>War Rouls</h2>
-                    <img src={warImg}/>
+                    <img src={warImg} alt={"example"}/>
                    
                     <p>The goal is to be the first player to win all 52 cards</p>
                     <h4><strong>The Deal</strong></h4>
@@ -207,7 +207,7 @@ function GamesImfo() {
                 </div>
                 <div className="games-info--roulette">
                     <h2>Roulette Rouls</h2>
-                    <img src={rouletteImg}/>
+                    <img src={rouletteImg} alt={"example"}/>
                     <h4>Rules of Roulette</h4>
                     <p>A roulette wheel consists of a spinning disk with divisions around its edge that revolves around the
                        base of a bowl. A ball is spun around the outside of the bowl until eventually ball and wheel come to

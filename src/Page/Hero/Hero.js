@@ -11,7 +11,7 @@ const Hero = () => {
                 <h2 className="casino--hero__text">Play, Earn and have fun with all our games</h2>
                 <Link className="primary--btn hero--btn" to="gameMenu" duration={1000} smooth={true} offset={100}>Play Games</Link>
             </div>
-            <img className="hero-img"  src={heroCards}/>
+            <img className="hero-img"  src={heroCards} alt={"example"}/>
             <div className="transparent-box"></div>
         </section>
     )

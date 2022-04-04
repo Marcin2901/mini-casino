@@ -43,7 +43,6 @@ const PokerFiveCardsTable = () => {
             .then(res => res.json())
             .then(data => {
                 const cards = data.cards;
-                console.log(cards)
                 setUser(
                    {name: "user", userCards: getCards(cards, 5), value: 0, allIn: false, winner: false}
                 )
@@ -422,8 +421,6 @@ const PokerFiveCardsTable = () => {
         fetch(`https://deckofcardsapi.com/api/deck/${deckId}/draw/?count=${quantity}`)
             .then(res => res.json())
             .then(data => {
-                console.log(rival.name)
-                console.log(bedCard)
                 const cards = data.cards;
                 setRivales(prevState => (prevState.map(r => r !== rival ? r : 
                                         {...rival, rivalCards: convertValue(rival.rivalCards).filter(card => !bedCard.find(c => JSON.stringify(c) === JSON.stringify(card)))
@@ -434,7 +431,6 @@ const PokerFiveCardsTable = () => {
     const rivalChange = () => {
         rivales.forEach(rival => {
             const rivalHand = checkHand(rival.rivalCards);
-            console.log(rivalHand)
             switch (rivalHand.name) {
                                 case "nothing" : {
                                     rivalChangeCards(rival, 5, convertValue(rival.rivalCards))
@@ -479,7 +475,7 @@ const PokerFiveCardsTable = () => {
                 <div className={`player-container ${userFold && "fold"}`}>
                     <div className="player-container--header">
                         <div className="img-box">
-                            <img src={userImg}/>
+                            <img src={userImg} alt={"example"}/>
                         </div>
                         <div className="player-info">
                             <h2>User</h2>    
@@ -492,9 +488,10 @@ const PokerFiveCardsTable = () => {
                     </div>
                     <div className="player-box">
                         {user &&
-                        user.userCards.map(card => <img className={`card-img user-card ${cardsToChange.find(c => c===card) && "card-active"}`}
+                        user.userCards.map((card, i) => <img key={i} className={`card-img user-card ${cardsToChange.find(c => c===card) && "card-active"}`}
                                                         src={callGame ? card.image : cardBack} 
                                                         onClick={() => round === 2 ? addCardToChange(card) : undefined}
+                                                        alt={"example"}
                                                     />)
                         }
                     </div>
@@ -504,7 +501,7 @@ const PokerFiveCardsTable = () => {
                 <div className="rival-container rival-container-1">
                     <div className="player-container--header">
                         <div className="img-box">
-                            <img src={rivalImg}/>
+                            <img src={rivalImg} alt={"example"}/>
                         </div>
                         <div className="player-info">
                             <h2>Rival</h2>    
@@ -513,7 +510,7 @@ const PokerFiveCardsTable = () => {
                     </div>
                     <div className="player-box">
                         {rivales && 
-                        rivales[0].rivalCards.map((card, i) => <img className={`card-img rival-card-${i}-img`} src={endGame ? card.image : cardBack}/>)
+                        rivales[0].rivalCards.map((card, i) => <img key={i} className={`card-img rival-card-${i}-img`} src={endGame ? card.image : cardBack} alt={"example"}/>)
                         }    
                     </div>    
                     {rivales && <span className="bet-value">bet: {licitate.rival1}$</span>}
@@ -522,7 +519,7 @@ const PokerFiveCardsTable = () => {
                 <div className="rival-container rival-container-2">
                     <div className="player-container--header">
                         <div className="img-box">
-                            <img src={rivalImg}/>
+                            <img src={rivalImg} alt={"example"}/>
                         </div>
                         <div className="player-info">
                             <h2>Rival</h2>    
@@ -531,7 +528,7 @@ const PokerFiveCardsTable = () => {
                     </div>
                     <div className="player-box">
                         {rivales && 
-                        rivales[1].rivalCards.map((card, i) => <img className={`card-img rival-card-${i}-img`} src={endGame ? card.image : cardBack}/>)
+                        rivales[1].rivalCards.map((card, i) => <img key={i} className={`card-img rival-card-${i}-img`} src={endGame ? card.image : cardBack} alt={"example"}/>)
                         }     
                     </div> 
                     {rivales && <span className="bet-value">bet: {licitate.rival2}$</span>}
@@ -540,7 +537,7 @@ const PokerFiveCardsTable = () => {
                 <div className="rival-container rival-container-3">
                     <div className="player-container--header">
                         <div className="img-box">
-                            <img src={rivalImg}/>
+                            <img src={rivalImg} alt={"example"}/>
                         </div>
                         <div className="player-info">
                             <h2>Rival</h2>    
@@ -549,7 +546,7 @@ const PokerFiveCardsTable = () => {
                     </div>
                     <div className="player-box">
                         {rivales && 
-                        rivales[2].rivalCards.map((card, i) => <img className={`card-img rival-card-${i}-img`} src={endGame ? card.image : cardBack}/>)
+                        rivales[2].rivalCards.map((card, i) => <img key={i} className={`card-img rival-card-${i}-img`} src={endGame ? card.image : cardBack} alt={"example"}/>)
                         } 
                     </div>     
                     {rivales && <span className="bet-value">bet: {licitate.rival3}$</span>}
@@ -562,7 +559,7 @@ const PokerFiveCardsTable = () => {
                     <button onClick={fold}>Fold</button>  
                     <button className={(round === 2 && !changed ) ? "" : "btn-disable"}  onClick={round === 2 ? changeCards : undefined}>Change</button>
                     <button className={licitate.user === currentBet ? "btn-disable" : "" } onClick={() => startLicitation(call)}>Call</button>
-                    <button className={(!callGame || (round === 2 && !changed )) && "btn-disable"} onClick={() => startLicitation((a) => bet(a, betValue))}>Bet</button>
+                    <button className={(!callGame || (round === 2 && !changed )) ? "btn-disable" : undefined} onClick={() => startLicitation((a) => bet(a, betValue))}>Bet</button>
                     <input type="number"
                            name="betValue"
                            onChange={(e) => handleInput(e)}

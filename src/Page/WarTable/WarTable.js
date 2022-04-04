@@ -119,11 +119,11 @@ const WarTable = () => {
         <div className="table__user-coins">{userCoins}$</div>
         <div className="war-table">
             <div className={rival && (rival.winRound && !warState.isWar) ? "war-table--card__container round-winner" : "war-table--card__container"}>
-                { (rival && rival.card.length !== 3 ) ? <img className="war-card--img" src={rival.card.image}/> : 
+                { (rival && rival.card.length !== 3 ) ? <img className="war-card--img" src={rival.card.image} alt={"example"}/> : 
                     <>
-                         <img className="war-card--img" src={rival.card[0].image}/>
-                         <img className="war--horizontal-card" src={cardBack}/>
-                         <img className="war-card--img" src={rival.card[2].image}/>
+                         <img className="war-card--img" src={rival.card[0].image} alt={"example"}/>
+                         <img className="war--horizontal-card" src={cardBack} alt={"example"}/>
+                         <img className="war-card--img" src={rival.card[2].image} alt={"example"}/>
                     </>}
             </div>
             <div className="war-table--info">
@@ -139,11 +139,11 @@ const WarTable = () => {
                 }
             </div>
             <div className={user && (user.winRound && !warState.isWar) ? "war-table--card__container round-winner" : "war-table--card__container" }>
-                { (user && user.card.length !== 3 ) ? <img className="war-card--img" src={user.card.image}/> : 
+                { (user && user.card.length !== 3 ) ? <img className="war-card--img" src={user.card.image} alt={"example"}/> : 
                     <>
-                         <img className="war-card--img" src={user.card[0].image}/>
-                         <img className="war--horizontal-card" src={cardBack}/>
-                         <img className="war-card--img" src={user.card[2].image}/>
+                         <img className="war-card--img" src={user.card[0].image} alt={"example"}/>
+                         <img className="war--horizontal-card" src={cardBack} alt={"example"}/>
+                         <img className="war-card--img" src={user.card[2].image} alt={"example"}/>
                     </>}
             </div>
             { !endGame ?

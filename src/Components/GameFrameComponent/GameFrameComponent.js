@@ -9,7 +9,7 @@ const GameFrameComponent = (props) => {
 
     return (
         <div className="game--frame">
-            <img className="game--frame__img" src={img}/>
+            <img className="game--frame__img" src={img} alt={"example"}/>
             <div className="game--frame__content">
                 <h3>{title}</h3>
                 <p>{description}</p>
